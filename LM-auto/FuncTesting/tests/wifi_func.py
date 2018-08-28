@@ -3,12 +3,12 @@
 #Author By Han Wei
 
 import unittest
-import time
+import time, os
 import HtmlTestRunner
 from appium import webdriver
 from tool.lm_logger import logging
 from tool.lm_report import report_file
-from tool.lm_screenshot import take_screenshot
+
 
 
 # from extend import Appium_Extend
@@ -80,6 +80,18 @@ class WifiClass(unittest.TestCase):
         #print("class quit began.....")
         logging.info("class quit began.....")
         cls.driver.quit()
+
+    def take_screenshot(self, func):
+        self.func = func
+        screen_path = os.path.dirname(os.getcwd()) + '/report'
+        screen_file = os.path.join(screen_path, self.func.__name__ + '.png')
+        try:
+            self.func(self, *args)
+        except:
+            pass
+        finally:
+            self.driver.get_screenshot_as_file(screen_file)
+
 
     @take_screenshot
     def test_wifi_a_status(self):
