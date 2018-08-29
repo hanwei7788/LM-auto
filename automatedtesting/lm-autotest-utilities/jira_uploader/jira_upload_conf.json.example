@@ -1,0 +1,28 @@
+{
+	"project":
+	{
+		"swa_system":["uboot2kernel", "mount_root", "ui_center", "ui_cluster"],
+		"pallas_system":["uboot2kernel", "mount_root", "ui_center"],
+		"indy_mule_system":["uboot2kernel", "mount_root", "ui_center", "ui_cluster"]
+	},
+	"url":
+	{
+		"dav":"https://dav.nomovok.info/C4C/testing/"
+	},
+	"paths":
+	{
+		"argotest":"/home/autotest/automatedtesting/argo_functional_tests/"
+	},
+	"graphs":
+	[
+		"cpu_freq.png",
+		"cpu_usage.png",
+		"load.png",
+		"mem_stats.png",
+		"rss.png",
+		"stime.png",
+		"uptime.png",
+		"utime.png"
+	],
+	"num_images_boot_time":10
+}

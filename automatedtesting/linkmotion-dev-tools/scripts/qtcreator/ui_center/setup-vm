@@ -1,0 +1,66 @@
+#!/bin/bash
+#
+# This script has been ported from vb-run.sh.
+#
+# This is meant for executing the ui_center on the vm with Qt Creator.
+#
+# Expectes to have /etc/sudoers NOPASSWD: set for system
+#
+#
+# (C) Link Motion Oy
+# Author: Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+#
+
+VIRTUAL_MACHINE=$1
+
+if [ -z ${VIRTUAL_MACHINE} ]; then
+	VIRTUAL_MACHINE=`vboxmanage list vms|tail -n1|grep -o "\".*\""|sed 's/\"//g'`
+
+	echo
+	echo "USAGE: ./setup-vm [vmname]"
+	echo
+	echo "Latest virtual machine is ${VIRTUAL_MACHINE}."
+	echo
+	echo "Do you want to setup the latest vm? (Y/n)"
+	read YES
+	if [ "${YES}" = "n" ]; then
+		vboxmanage list vms
+		exit 1
+	fi
+fi
+
+echo
+echo "This script prepares SDK virtual machine for development."
+echo
+echo "This will"
+echo "  - setup ssh public key authentication."
+echo "  - add 10.0.0.30 as interface ip for the enp0s8"
+echo "  - create /home/system/fix-net script to fix the network for 10.0.0.30 interface."
+echo
+echo "Press <enter> to continue."
+read
+
+IS_VM_RUNNING=`vboxmanage list runningvms|grep ${VIRTUAL_MACHINE}`
+if [ ! -z "${IS_VM_RUNNING}" ]; then
+	vboxmanage controlvm ${VIRTUAL_MACHINE} poweroff
+	sleep 5
+fi
+
+# configure virtualbox secondary interface for the right network area.
+#NIC 1 Rule(0):   name = ssh, protocol = tcp, host ip = , host port = 5555, guest ip = , guest port = 22
+vboxmanage modifyvm ${VIRTUAL_MACHINE} --natpf1 ssh,tcp,,5555,,22
+
+#NIC 2:           MAC: 0800276C55AC, Attachment: Internal Network 'SkytreeSDK', Cable connected: on, Trace: off (file: none), Type: 82540EM, Reported speed: 0 Mbps, Boot priority: 0, Promisc Policy: deny, Bandwidth group: none
+vboxmanage modifyvm ${VIRTUAL_MACHINE} --nic2 intnet
+vboxmanage modifyvm ${VIRTUAL_MACHINE} --intnet2 "SkytreeSDK"
+vboxmanage modifyvm ${VIRTUAL_MACHINE} --cableconnected2 on
+
+vboxmanage startvm ${VIRTUAL_MACHINE}
+sleep 10
+
+# lets deploy public key
+ssh-copy-id -p 5555 system@localhost
+
+scp -P5555 -r setup system@localhost:/home/system
+
+ssh -tp 5555 system@localhost '/home/system/setup/finalize'

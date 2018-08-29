@@ -1,0 +1,65 @@
+Terminology
+
+Boot time in the narrower sense refers to the kernel.
+
+I try to use the term start-up time when talking about kernel and
+user space.
+
+-----
+
+High-level design
+
+1) QA start-up performance follow-up is carried out using product images
+
+2) The syslog is exported by either
+
+   - the existing log exporte or
+   - booting from SD card or USB card and mounting the /var filesystem on eMMC
+
+   All further work is done on a PC.
+
+3) A log splitter is used to split the log file into several ones, each
+   containing the information of one boot session.
+
+   Reasoning: Unix principle, small tools for 1 purpose. Log splitter can also
+   be used elsewhere
+
+   Note: logrotate is not handled yet (the case that information belonging
+         to one boot session is spread out over more than 1 file) It should be
+         irrelelvant for start-up performance. In case it happens in R&D one
+         can just concatenate the splitted log files (in descending number order)
+
+4) The start-up follow-up script sufu.sh extracts the measurement points from the
+   splitted log and reports them in milliseconds
+
+   At the moment our measurement points are
+
+   - transfer from U-Boot to kernel
+   - rootfs mounted
+   - ui-cluster ready (added in late development phase)
+   - ui-center ready
+
+-----
+
+Timer used
+
+We use the EPIT timer of the i.MX6 SoC. It is a high resolution timer
+started in U-Boot. The time between power-on and starting this timer is
+currently unknown, would need some HW measurements.
+
+-----
+
+Design of the sufu.sh script
+
+The measurement points will change rather soon [1], so the script is made
+configurable.
+
+For each measurement point there are 3 parameters
+
+a) a regexp to find the line containing the value
+b) a regexp to extract the numerical value
+c) a conversion function to convert the value to milliseconds after EPIT
+   start
+
+
+[1] ui_cluster has been added later and initiramfs was expected to come soon

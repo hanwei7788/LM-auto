@@ -1,0 +1,25 @@
+#!/bin/bash
+###############################################################################
+#
+# This is the main script to be called from the outside
+#
+# Author: Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+#
+# (C) 2016 Link Motion Oy
+# All Rights Reserved.
+###############################################################################
+
+export WORKPATH=`pwd`
+
+# set work path to scriptpath
+SCRIPTFILE=`realpath $0`
+SCRIPTPATH=`dirname ${SCRIPTFILE}`
+pushd ${SCRIPTPATH} > /dev/null
+
+# execute script
+args=($@)
+args_len=${#args[@]}
+
+../.wrapper ./scripts/autolicense.py ${args[@]:0:$args_len}
+
+popd > /dev/null

@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+echo "Device IP:"
+read TARGET_IP
+
+scp -r Music/* root@${TARGET_IP}:/home/user/Music/
+ssh root@${TARGET_IP} "reboot"

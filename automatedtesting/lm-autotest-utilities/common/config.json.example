@@ -1,0 +1,69 @@
+{
+	"urls": {
+		"jira": "https://jira.link-motion.com/"
+	},
+	"auth": {
+		"jira": {
+			"username": "user",
+			"password": "pass"
+		},
+		"dav": {
+			"username": "user",
+			"password": "pass"
+		},
+		"windowspc": {
+			"url": "Nomovok@192.168.2.10",
+			"password": "skytree"
+		}
+	},
+	"test_types": {
+		"release": {
+			"continuous": false,
+			"assignee": "verneri.ahola@link-motion.com",
+			"exec_name": "automated release test execution",
+			"issues_dir": "release_issue_keys",
+			"sufu": true,
+			"slack_announce": false
+		},
+		"releasesmoke": {
+			"continuous": false,
+			"assignee": "verneri.ahola@link-motion.com",
+			"exec_name": "automated release smoke test execution",
+			"issues_dir": "release_issue_keys",
+			"sufu": true,
+			"slack_announce": true
+		},
+		"smoke": {
+			"continuous": false,
+			"assignee": "johannes.lahti@nomovok.com",
+			"exec_name": "automated smoke test execution",
+			"issues_dir": null,
+			"sufu": false,
+			"slack_announce": true
+		},
+		"weekly": {
+			"continuous": false,
+			"assignee": "verneri.ahola@link-motion.com",
+			"exec_name": "automated test execution",
+			"issues_dir": null,
+			"sufu": false,
+			"slack_announce": false
+		},
+		"nightly": {
+			"continuous": false,
+			"assignee": "verneri.ahola@link-motion.com",
+			"exec_name": "automated test execution",
+			"issues_dir": "nightly_issue_keys",
+			"sufu": false,
+			"slack_announce": false
+		},
+		"nightly_cont": {
+			"continuous": true,
+			"assignee": "verneri.ahola@link-motion.com",
+			"exec_name": "automated continuous test execution",
+			"issues_dir": "nightly_issue_keys",
+			"sufu": false,
+			"slack_announce": false
+		}
+	}
+}

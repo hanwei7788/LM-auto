@@ -1,0 +1,20 @@
+{
+	"fields": {
+		"project": {
+			"key": "LM"
+		},
+		"summary": "Automated smoke test execution - $weekday $date - $software_type",
+		"description": "$image_url",
+		"environment": "$sut_name",
+		"issuetype": {
+			"name": "Test Execution"
+		},
+		"assignee": {
+			"name":"johannes.lahti@nomovok.com"
+		},
+		"fixVersions": [{"name":"$version"}],
+		"versions": [{"name":"$version"}],
+		"customfield_10705":["$hardware"],
+		"customfield_10707":["$testplan"]
+	}
+}

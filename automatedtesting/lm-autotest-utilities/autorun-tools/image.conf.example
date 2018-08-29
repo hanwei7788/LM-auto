@@ -1,0 +1,14 @@
+sut_config="sut_c4c_NA-75"
+sut_ip="192.168.125.143"
+sut_power="autotest3"
+imagepath="https://dav.nomovok.info/C4C/images/imx6-0.16-lm_ivios-nightly/"
+imageprefix="imx6-0.16-lm_ivios-nightly-"
+imagepostfix=".ext4fs.xz"
+last_tested_image="20160721-0136"
+autotest_root="/home/autotest/automatedtesting"
+test_set_template_path="https://dav.nomovok.info/C4C/testing/automatedtesting/templates/"
+current_test_base="LM-Current.xml"
+test_results_path="https://dav.nomovok.info/C4C/testing/automatedtesting/logs/"
+
+
+

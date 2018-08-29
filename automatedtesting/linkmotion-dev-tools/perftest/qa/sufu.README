@@ -1,0 +1,63 @@
+sufu recommended usage
+
+1.) name the exported logfile according to the image
+
+   $ mv -i log imx6-0.30-swa_system-prod-20170919-1133
+
+   It's important that chronological order is reflected in alphabetic
+   order of the files.
+
+2.) split the log file into boot specific parts
+
+   $ ./logsplitter.sh imx6-0.30-swa_system-prod-20170919-1133
+
+3.) Analyze all boot specific logs in one go
+
+   $ ls imx6-0.30-swa_system-prod-20170919-1133-boot-00* | xargs -L 1 ./sufu.sh
+
+4.) if there were error messages about missing measurement points remove the
+    affected output files
+
+   $ rm imx6-0.30-swa_system-prod-20170919-1133-boot-0001.csv
+
+5.) create a single csv file
+
+   cat imx6-*.csv > all.csv
+
+----
+
+CSV format description
+
+Output file format
+
+Example
+
+imx6-0.30-swa_system-prod-20170921-0355-boot-0002,uboot2kernel,445830,446,446,mount_root,4292558171,2409,1963,ui_cluster,4288642491,6325,3916,ui_center,4286274053,8693,2368
+
+- first column (value) is the log file name the measurements where extracted from
+
+- after that there are 4 columns (values) for each measurement point
+-- measurement point name
+-- raw value extracted from log (this is not currently used. It's just saved in case we
+   might need to debug something in the measurement or reporting framework)
+-- absolute timestamp of the measurement point converted to millisecons
+-- relative timestamp of the current measurement point past the previous measurement point
+   in milliseconds
+
+Output print format
+
+The sufu script also prints similar data. However, for better human
+readability each measurement point is reported as a new line. Separate lines
+would be more difficult to handle in a spreadsheet, so file format and print
+format were chosen to be different.
+
+Example (same as above)
+
+imx6-0.30-swa_system-prod-20170921-0355-boot-0002,uboot2kernel,445830,446,446
+imx6-0.30-swa_system-prod-20170921-0355-boot-0002,mount_root,4292558171,2409,1963
+imx6-0.30-swa_system-prod-20170921-0355-boot-0002,ui_cluster,4288642491,6325,3916
+imx6-0.30-swa_system-prod-20170921-0355-boot-0002,ui_center,4286274053,8693,2368
+
+The idea of printing was to allow the user to quickly/early spot if there is
+invalid/unreasonable data. Of course the issue would also become visible in
+a chart later.

@@ -1,0 +1,136 @@
+#
+# Helper makefile to help work with LinkMotion.
+#
+#  - Symlink this Makefile to your src directory:
+#    cd ~/src; ln -s linkmotion-dev-tools/scripts/HelperMakefile Makefile
+#  - Edit /etc/hosts so that lmhw points to your hardware ip address.
+#  - Setup hardware with hardware-setup/setup_new_device.sh to get ssh auth etc.
+#
+# *** Examples ***
+#
+# To build lm-ui-plugins with LinkMotion SDK:
+# Make sure you have SDK set up and a arm container exists.
+#
+# make SRC=lm-ui-plugins
+#
+# This will build the rpm and install it to lmhw.
+#
+# To build it on desktop (builds & installs deb package):
+#
+# make LM_TARGET=deb SRC=lm-ui-plugins
+#
+# To build with docker sdk:
+# Make sure you have the docker sdk set up (see its README).
+#
+# make LM_TARGET=docker SRC=lm-ui-plugins
+#
+# To install rpm's you've already have built:
+#
+# make PACKAGES=/package/directory installpackages
+#
+#
+# *** Using with Qt Creator ***
+#
+# Edit project build settings, remove the default build steps and
+# add custom step:
+#
+# Command: make
+# Arguments: SRC=%{sourceDir}
+# Working directory: %{sourceDir}/..
+#
+# Scroll down to see other helper commands and their documentation.
+
+
+SHELL := /bin/bash
+# SSH target device (add lmhw to /etc/hosts to make life easy)
+SSH_TARGET := root@lmhw
+SSH_OPTS := -o ServerAliveInterval=1
+LXC_ATTACH_OPTS := -P /usr/lib/lm_containers -n ivi
+LM_TARGET ?= lmsdk
+
+# Installs packages in directory $PACKAGES to the device
+define install_packages
+    echo Installing packages in ${PACKAGES} to device..
+    ssh ${SSH_OPTS} ${SSH_TARGET} rm -rf /usr/lib/lm_containers/ivi/rootfs/root/rpmtemp
+    ssh ${SSH_OPTS} ${SSH_TARGET} mkdir -p /usr/lib/lm_containers/ivi/rootfs/root/rpmtemp
+    scp ${PACKAGES}/* ${SSH_TARGET}:/usr/lib/lm_containers/ivi/rootfs/root/rpmtemp
+    # Install inside ivios
+    ssh ${SSH_OPTS} ${SSH_TARGET} lxc-attach ${LXC_ATTACH_OPTS} -- rpm -Uvh --force --ignorearch /root/rpmtemp/*.rpm
+endef
+
+# Helper function to build one git repository:
+define build_repository
+    echo -e "\n\n\n"
+    if [ -z "$(SRC)" ]; then
+    echo ERROR: Please set the source directory with SRC= option.
+    exit -1
+    fi
+
+    echo -e "Building ${SRC} for ${LM_TARGET}\n\n"
+
+# Debian build:
+    if [ "${LM_TARGET}" == "deb" ]; then
+    rm *.deb || false
+    cd ${SRC}
+    debuild -us -uc -b
+    sudo dpkg -i ../*.deb
+    cd ..
+# Docker SDK build for hardware (arm):
+    elif [ "${LM_TARGET}" == "docker" ]; then
+    ./linkmotion-dev-tools/lm-docker-sdk/docker-install-rpm-container.sh ${SRC} lmhw
+# Link Motion SDK build for hardware (arm):
+    elif [ "${LM_TARGET}" == "lmsdk" ]; then
+    # Clean up build dirs
+    rm -rf /tmp/rpmtemp
+    mkdir -p /tmp/rpmtemp
+    # Do the actual build
+    /opt/lm-sdk/lm-sdk-ide/bin/lmsdk-target rpmbuild --build-deps -o /tmp/rpmtemp device-armv7tnhl ${SRC}
+    make PACKAGES=/tmp/rpmtemp installpackages
+    else
+    echo ERROR: Invalid LM_TARGET value.
+    exit -1
+    fi
+    notify-send "${SRC} build finished"
+endef
+
+# Default target
+build:
+	$(call build_repository)
+
+# Hardware control helper targets:
+reboothw:
+	ssh ${SSH_OPTS} ${SSH_TARGET} kill -HUP 1
+
+poweroffhw:
+	ssh ${SSH_OPTS} ${SSH_TARGET} kill -PWR 1
+
+# Restarts ui_center process
+restarthw:
+	ssh ${SSH_OPTS} ${SSH_TARGET} kill \`pidof ui_center\`
+
+# Show journal in window (journal no longer used)
+journal:
+	x-terminal-emulator -e ssh ${SSH_OPTS} -t ${SSH_TARGET} journalctl -fl
+
+# Show syslog in window
+syslog: 
+	x-terminal-emulator -e ssh ${SSH_OPTS} -t ${SSH_TARGET} tail -f /var/log/messages
+
+# Login to ivios
+ivios:
+	ssh ${SSH_OPTS} -t ${SSH_TARGET} lxc-attach ${LXC_ATTACH_OPTS} bash
+
+# Login to autoos
+autoos:
+	ssh ${SSH_OPTS} -t ${SSH_TARGET} bash
+
+# Start networking in ivios side, with google dns
+concon:
+	ssh ${SSH_OPTS} ${SSH_TARGET} concon.sh ics
+	echo nameserver 8.8.8.8 | ssh ${SSH_OPTS} ${SSH_TARGET} "cat > /usr/lib/lm_containers/ivi/rootfs/etc/resolv.conf"
+
+# Install packages in $PACKAGES to device.
+installpackages:
+	@$(call install_packages)
+
+.ONESHELL:

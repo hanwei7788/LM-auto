@@ -1,0 +1,40 @@
+HOW TO INSTALL
+==============
+
+can-simulator-ng$ ./build.sh
+can-simulator-ng/ruby$ rake gem
+can-simulator-ng/ruby$ gem install pkg/*.gem
+
+HOW TO USE
+==========
+Selected can bus must be up and running, before using this ruby binding.
+This is because initializing the bus requires root privileges.
+
+Example:
+can-simulator-ng$ init.sh can0 500000
+
+ruby code example:
+================================================
+require "cansimng"
+
+CanSimNG.set_iface('vcan0')
+CanSimNG.set_canspec('pathto.cfg', 'pathto.dbc')
+CanSimNG.send('speed=100')
+
+CanSimNG.receive
+
+=OR=
+
+CanSimNG.run {
+  CanSimNG.getValues
+  CanSimNG.getValues['acOn']
+  ...
+}
+
+=OR=
+
+CanSimNG.start
+CanSimNG.getValues
+CanSimNG.stop
+================================================
+

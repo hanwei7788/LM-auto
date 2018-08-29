@@ -1,0 +1,21 @@
+Source: can-simulator-ng
+Section: non-free/Utilities
+Priority: optional
+Maintainer: Matti Lehtimäki <matti.lehtimaki@link-motion.com>
+Build-Depends: cmake, debhelper (>=9), libgtest-dev, libjansson-dev, libsocketcan-dev, libcap-dev, qtbase5-dev
+Standards-Version: 3.9.6
+Homepage: http://link-motion.com/
+
+Package: can-simulator-ng-cli
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, libjansson4, libsocketcan2, libcap2
+Description: CAN simulator
+ The CAN simulator toolkit provides a way to both read and write the CAN
+ bus on a PC
+
+Package: can-simulator-ng-gui
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, libjansson4, libsocketcan2, libcap2, libqt5gui5, libqt5widgets5, libqt5core5a
+Description: CAN simulator GUI
+ The CAN simulator GUI provides a way to both read and write the CAN
+ bus on a PC from graphical user interface

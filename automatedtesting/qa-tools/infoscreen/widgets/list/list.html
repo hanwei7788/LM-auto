@@ -1,0 +1,13 @@
+<h1 class="title" data-bind="title"></h1>
+<table style="width:100%">
+  <tr>
+    <th class="label">SUT</th>
+    <th class="results">RESULTS</th>
+  </tr>
+  <tr data-foreach-item="items">
+    <td class="label" data-bind="item.resultssut"></td>
+    <td class="results" data-bind-style="item.resultscolor" data-bind="item.results"></td>
+  </tr>
+</table>
+<p class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>

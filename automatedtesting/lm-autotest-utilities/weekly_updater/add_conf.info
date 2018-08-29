@@ -1,0 +1,19 @@
+Add device confs
+=====================
+
+Joonas Siurua 2018
+
+Description
+===========
+
+This is used to create .conf files more easily
+
+Requirements
+============
+
+Python 3 needs to be installed
+
+Using
+=====
+
+This script edits 'weekly.conf' and creates device specific conf file

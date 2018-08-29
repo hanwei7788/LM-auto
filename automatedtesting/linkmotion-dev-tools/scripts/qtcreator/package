@@ -1,0 +1,85 @@
+#!/bin/bash
+set -e
+#
+# set this to deploy steps in qt creator
+#
+# Author: Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+# (C) Link Motion Oy
+
+PROJECT_NAME=$1
+SSH_IP=$2
+SSH_OPTS=$3
+SCP_OPTS=
+
+if [[ -z ${SSH_IP} ]]; then
+  SSH_IP="10.0.0.30"
+fi
+
+if [[ ! -z ${SSH_OPTS} ]]; then
+  SCP_OPTS="-P ${SSH_OPTS}"
+  SSH_OPTS="-p ${SSH_OPTS}"
+fi
+
+if [ -z ${PROJECT_NAME} ]; then
+  echo "You need to pass %{CurrentProject:Name} to build arguments."
+  exit 1
+fi
+
+echo "Packaging ${PROJECT_NAME}.."
+
+SOURCE_VERSION=`cat ${PROJECT_NAME}.spec |grep "Version:"|grep -o '[0-9]\+.[0-9]\+.[0-9]\+'`
+SOURCE_PACKAGE=${PROJECT_NAME}-${SOURCE_VERSION}.tar.gz
+
+# lets build our source package
+echo "Creating a source package.."
+git archive -o ${SOURCE_PACKAGE} --format=tar.gz HEAD
+mkdir -p .tmp
+pushd .tmp
+ rm -Rf ${PROJECT_NAME}-${SOURCE_VERSION}
+ mkdir ${PROJECT_NAME}-${SOURCE_VERSION}
+ pushd ${PROJECT_NAME}-${SOURCE_VERSION}
+ tar xvf ../../${SOURCE_PACKAGE}
+ popd
+ rm ../${SOURCE_PACKAGE}
+ tar czf ../${SOURCE_PACKAGE} ${PROJECT_NAME}-${SOURCE_VERSION}
+popd
+rm -Rf .tmp
+echo "..source package is ready!"
+echo
+
+# prepare the remote machine
+ssh ${SSH_OPTS} system@${SSH_IP} " mkdir -p /home/system/rpmbuild/SOURCES/"
+
+echo "Transferring source package to target.."
+# transfer source package
+scp ${SCP_OPTS} ${SOURCE_PACKAGE} system@${SSH_IP}:/home/system/rpmbuild/SOURCES
+echo "..transferred!"
+echo
+echo "Building the package on target.."
+# build the RPM files
+ssh ${SSH_OPTS} system@${SSH_IP} << EOF
+  set -e
+  cd /home/system/src/${PROJECT_NAME}
+  pushd /home/system/rpmbuild
+    rm -Rf BUILD RPMS SRPMS
+  popd
+
+  # install build dependencies
+  echo "Installing build dependencies.."
+  cat ${PROJECT_NAME}.spec |grep -i buildrequires|grep -v pkg|sed "s/.*:  //g"| sudo xargs -I{} zypper --no-gpg-checks --non-interactive in {}
+  echo "..build dependencies installed!"
+  echo
+
+  # build the package
+  echo "Building the rpm package.."
+  rpmbuild -bb ${PROJECT_NAME}.spec
+  echo "..rpm package built."
+EOF
+echo
+# download the results
+echo "Transfer results from target.."
+scp ${SCP_OPTS} system@${SSH_IP}:/home/system/rpmbuild/RPMS/*/${PROJECT_NAME}* ..
+echo "..transfer complete!"
+PKGPATH=`pwd`/..
+echo
+echo "RPM package are now available @ ${PKGPATH}"

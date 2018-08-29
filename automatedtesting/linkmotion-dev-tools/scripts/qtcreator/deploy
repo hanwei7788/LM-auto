@@ -1,0 +1,56 @@
+#!/bin/bash
+set -e
+# set this to deploy steps in qt creator
+# Author: Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+# (C) Link Motion Oy
+
+PROJECT_NAME=$1
+SSH_IP=$2
+SSH_OPTS=$3
+
+if [[ -z ${SSH_IP} ]]; then
+  SSH_IP="10.0.0.30"
+fi
+
+if [[ ! -z ${SSH_OPTS} ]]; then
+  SSH_OPTS="-p ${SSH_OPTS}"
+fi
+
+if [ -z ${PROJECT_NAME} ]; then
+  echo "You need to pass %{CurrentProject:Name} to build arguments."
+  exit 1
+fi
+
+echo "Installing a RPM packages for ${PROJECT_NAME}.."
+
+SOURCE_VERSION=`cat ${PROJECT_NAME}.spec | grep "Version:" | grep -o '[0-9]\+.[0-9]\+.[0-9]\+'`
+SOURCE_PACKAGENAME=`cat ${PROJECT_NAME}.spec | grep "Name:" | sed "s/Name://g" | grep -o '[a-zA-Z0-9_-]\+'`
+SOURCE_PACKAGES=`cat ${PROJECT_NAME}.spec | grep "%package" | sed "s/%package//g"| grep -o "[a-zA-Z0-9_-]\+"|tr '\n' ' '`
+PACKAGE_NAME=${PROJECT_NAME}.*${SOURCE_VERSION}*.rpm
+
+PACKAGES=""
+for PACKAGE in ${SOURCE_PACKAGES}; do
+  PACKAGES="${PACKAGES} ${SOURCE_PACKAGENAME}-${PACKAGE}"
+done
+
+echo "Installing ${SOURCE_PACKAGENAME}.."
+
+# install the RPM files
+ssh ${SSH_OPTS} system@${SSH_IP} << EOF
+  # uninstall old packages if exists
+  sudo rpm --nodeps -e ${SOURCE_PACKAGENAME}
+  sudo rpm --nodeps -e ${PACKAGES}
+
+  # install our package
+  pushd /home/system/rpmbuild/RPMS
+    find .|grep ${SOURCE_PACKAGENAME}|grep rpm
+    FOUND_PACKAGES=`find . |grep ${SOURCE_PACKAGENAME} |grep rpm`
+    echo "Found packages:"
+    echo ${FOUND_PACKAGES}
+    echo "Installing.."
+    find .|grep ${SOURCE_PACKAGENAME}|grep rpm |sort|xargs -I{} sudo rpm --install --replacepkgs --percent --verbose {}
+    echo "..installed!"
+  popd
+EOF
+echo "..${SOURCE_PACKAGENAME} has been installed!"
+echo

@@ -1,0 +1,40 @@
+.widget-list {
+  background-color: #669900;
+  vertical-align: top;
+
+  .title {
+    font-size: 20px;
+    color:  #ccffff;
+  }
+
+  .label {
+    margin-left: 10px;
+    width: 108px;
+    padding-top: 8px;
+    font-size: 12px;
+    float: left;
+    text-align: left;
+    color:  #ccffff;
+    font-weight: 600;
+  }
+
+  .results {
+    text-align: right;
+    width: 480px;
+    font-size: 12px;
+    padding-top: 8px;
+    float: left;
+    font-weight: 600;
+    color:  #ccffff;
+  }
+
+  .updated-at {
+    font-size: 9px;
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .more-info {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
