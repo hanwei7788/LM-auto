@@ -58,11 +58,15 @@ if [ $? -ne 0 ];then
 
    sudo apt-get update
    echo "Y"|sudo apt-get -f install docker.io
+
    if [ $? -nq 0 ];then
       echo "Mannually install docker please."
       exit
 
    fi
+   sudo gpasswd -a ${USER} docker
+   sudo service docker restart
+   newgrp docker
 fi
 
 sleep 3
