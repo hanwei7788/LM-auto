@@ -1,0 +1,9 @@
+#!/bin/bash
+# https://wiki.nomovok.info/C4C/index.php/CuTeDriver_Instructions
+
+sudo sed -i 's/^SingleConnectedTechnology=true/SingleConnectedTechnology=false/' /etc/connman/main.conf
+sudo sed -i -e '/testability/s/false/true/' /altdata/system/ui/center-configurations/default.ini
+
+sudo mkdir -p /logs/testability
+sudo chown system:systemapps /logs
+sudo chown system:systemapps /logs/testability

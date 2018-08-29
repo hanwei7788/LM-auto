@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: linkmotion-dev-tools
+Source: http://link-motion.com
+
+Files: *
+Copyright: 2016 LinkMotion Oy <info@link-motion.com>
+License: Proprietary
+ All rights reserved.

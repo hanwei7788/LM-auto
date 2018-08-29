@@ -1,0 +1,8 @@
+#!/bin/bash
+
+URL=$1
+echo "Downloading ${URL}"
+echo "Username: "
+read USERNAME
+
+wget --user ${USERNAME} --ask-password ${URL}

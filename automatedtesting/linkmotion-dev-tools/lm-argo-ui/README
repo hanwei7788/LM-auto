@@ -1,0 +1,11 @@
+
+
+ Here is a script to build Argo UI and its dependencies for Ubuntu desktop inside a docker container.
+
+Usage:
+
+ - Put dependencies in your source directory ~/src
+ - run ./build_argo.sh
+ - Everything is successful and you find the built .deb files in ~/src/argo-ui-built-packages
+
+

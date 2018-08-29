@@ -1,0 +1,32 @@
+#!/bin/bash
+###########################################
+#
+# This is a helper script for a vanilla hw.
+#
+# Author(s): Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+#
+# (C) 2017 Link Motion Oy
+# All Rights Reserved
+###########################################
+USAGE="$0 [somefile.combined]"
+COMBINED_FILE=$1
+if [[ -z ${COMBINED_FILE} ]]; then
+  echo ${USAGE}
+  exit 1
+fi
+
+AUTOOS=`cat /etc/issue|grep -i auto`
+if [[ -z ${AUTOOS} ]]; then
+  echo "This script should be executed on autoos."
+  exit 2
+fi
+echo "Detected autoos."
+echo
+echo "continue flashing with <enter> or cancel with <ctrl+c>"
+set -e
+read
+
+set -e
+echo 0 > /sys/block/mmcblk3boot1/force_ro
+dd bs=1M conv=fsync of=/dev/mmcblk3boot1 if=${COMBINED_FILE}
+echo 1 > /sys/block/mmcblk3boot1/force_ro

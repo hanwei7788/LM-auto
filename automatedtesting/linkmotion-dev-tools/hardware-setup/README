@@ -1,0 +1,9 @@
+Scripts in this directory:
+ 
+write_usb_image.sh <image file> <device>
+  Writes the image file to USB stick device. 
+
+setup_new_device.sh <ip>
+  Sets up a new device with ssh passwordless authentication and 
+  journal logging. Copies the network setup files to autoos /root
+

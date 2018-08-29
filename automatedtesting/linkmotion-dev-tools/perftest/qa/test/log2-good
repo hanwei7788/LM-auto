@@ -1,0 +1,905 @@
+1970-01-01T04:56:35.880+00:00 []: syslog-ng starting up; version='3.9.1'
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Booting Linux on physical CPU 0x0
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Initializing cgroup subsys cpuset
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Initializing cgroup subsys cpu
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Initializing cgroup subsys cpuacct
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Linux version 4.1.33-halti-rd-7b5c802f (abuild@) (gcc version 4.8.3 20140401 (prerelease) (crosstool-NG linaro-1.13.1-4.8-2014.04 - Linaro GCC 4.8-2014.04) ) #1 SMP PREEMPT Mon Sep 11 12:03:11 UTC 2017
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c5387d
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Machine model: Link Motion i.MX6 Quad Plus Halti Board
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Reserved memory: created CMA memory pool at 0x6a000000, size 320 MiB
+1970-01-01T04:56:35.883+00:00 []: [    0.000000] Reserved memory: initialized node linux,cma, compatible id shared-dma-pool
+1970-01-01T04:56:35.886+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: 000000000.418586 DBG cluster [0]: running as 'org.c4c.ui_cluster': 20002
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [231]: 000000000.419708 DBG ivi [0]: running as 'system': 20000
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [231]: lxc-start: log.c: log_open: 188 failed to open log file "/usr/lib/lm_containers/ivi/ivi.log" : Permission denied
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [231]: lxc-start: log.c: build_dir: 167 Permission denied - failed to create directory '/var/log/lxc'.
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [231]: lxc-start: log.c: __lxc_log_set_file: 296 failed to create dir for log file "/var/log/lxc/ivi.log" : Permission denied
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [383]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /dev/tty_i2c onto /usr/lib/lxc/rootfs/dev/tty_i2c
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [383]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /dev/vboxguest onto /usr/lib/lxc/rootfs/dev/vboxguest
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [383]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /dev/vboxuser onto /usr/lib/lxc/rootfs/dev/vboxuser
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [383]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /dev/iap2 onto /usr/lib/lxc/rootfs/dev/iap2
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [383]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /run/lsapi onto /usr/lib/lxc/rootfs/run/lsapi
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n ivi -F [383]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /tmp/weston onto /usr/lib/lxc/rootfs/tmp/weston
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n secure -F [258]: 000000000.558170 DBG secure [0]: running as 'system': 20000
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n secure -F [258]: lxc-start: log.c: log_open: 188 failed to open log file "/usr/lib/lm_containers/secure/secure.log" : Permission denied
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n secure -F [258]: lxc-start: log.c: build_dir: 167 Permission denied - failed to create directory '/var/log/lxc'.
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n secure -F [258]: lxc-start: log.c: __lxc_log_set_file: 296 failed to create dir for log file "/var/log/lxc/secure.log" : Permission denied
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n secure -F [379]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /dev/ttyUSB4 onto /usr/lib/lxc/rootfs/dev/ttyUSB4
+1970-01-01T04:56:35.886+00:00 /usr/bin/lxc-start -P /usr/lib/lm_containers -n secure -F [379]: lxc-start: utils.c: safe_mount: 1746 No such file or directory - Failed to mount /run/lsapi onto /usr/lib/lxc/rootfs/run/lsapi
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] Memory policy: Data cache writealloc
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] On node 0 totalpages: 524288
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] free_area_init_node: node 0, pgdat 80971500, node_mem_map ee557000
+1970-01-01T04:56:35.888+00:00 []: [    0.000000]   Normal zone: 4014 pages used for memmap
+1970-01-01T04:56:35.888+00:00 []: [    0.000000]   Normal zone: 0 pages reserved
+1970-01-01T04:56:35.888+00:00 []: [    0.000000]   Normal zone: 456704 pages, LIFO batch:31
+1970-01-01T04:56:35.888+00:00 []: [    0.000000]   HighMem zone: 67584 pages, LIFO batch:15
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] PERCPU: Embedded 11 pages/cpu @ee502000 s16064 r8192 d20800 u45056
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] pcpu-alloc: s16064 r8192 d20800 u45056 alloc=11*4096
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 520274
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] Kernel command line: console=ttymxc3,115200 rootwait root=/dev/mmcblk3p1 rootfstype=ext4 video=mxcfb0:dev=hdmi,1024x768M@70,if=RGB24,bootsplash=1 video=mxcfb1:dev=ldb,if=RGB666,bpp=16,bootsplash=2 lvds0_timing=2 print-fatal-signals=1 linkmotion-root-rw u-boot-version=2016_11-rc1-g7a47e3b5-halti-76-1_3_3-rnd_08_30_2017 elapsed=5689359
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] Dentry cache hash table entries: 262144 (order: 8, 1048576 bytes)
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] Inode-cache hash table entries: 131072 (order: 7, 524288 bytes)
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] Memory: 1738368K/2097152K available (6046K kernel code, 209K rwdata, 2524K rodata, 860K init, 402K bss, 31104K reserved, 327680K cma-reserved, 270336K highmem)
+1970-01-01T04:56:35.888+00:00 []: [    0.000000] Virtual kernel memory layout:
+1970-01-01T04:56:35.888+00:00 []: [    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+1970-01-01T04:56:35.888+00:00 []: [    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+1970-01-01T04:56:35.888+00:00 []: [    0.000000]     vmalloc : 0xf0000000 - 0xff000000   ( 240 MB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000]     lowmem  : 0x80000000 - 0xef800000   (1784 MB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000]     pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000]     modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000]       .text : 0x80008000 - 0x80866ca4   (8572 kB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000]       .init : 0x80867000 - 0x8093e000   ( 860 kB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000]       .data : 0x8093e000 - 0x809725e0   ( 210 kB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000]        .bss : 0x809725e0 - 0x809d6ed0   ( 403 kB)
+1970-01-01T04:56:35.889+00:00 []: [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+1970-01-01T04:56:35.889+00:00 []: [    0.000000] Preemptible hierarchical RCU implementation.
+1970-01-01T04:56:35.889+00:00 []: [    0.000000] 	Additional per-CPU info printed with stalls.
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] NR_IRQS:16 nr_irqs:16 16
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] L2C-310 erratum 769419 enabled
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] L2C-310 enabling early BRESP for Cortex-A9
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] L2C-310 full line of zeros enabled for Cortex-A9
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] L2C-310 ID prefetch enabled, offset 16 lines
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] L2C-310 dynamic clock gating enabled, standby mode enabled
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] L2C-310 cache controller enabled, 16 ways, 1024 kB
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] L2C-310: CACHE_ID 0x410000c8, AUX_CTRL 0x76470001
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] mxc_clocksource_init 3000000
+1970-01-01T04:56:35.890+00:00 []: [    0.000000] Switching to timer-based delay loop, resolution 333ns
+1970-01-01T04:56:34.000+00:00 [0]: Service started.
+1970-01-01T04:56:35.000+00:00 [0]: update-manager started
+1970-01-01T04:56:35.000+00:00 [0]: main.c/start_update_manager_plugins:105 Loaded module usb-update.so
+1970-01-01T04:56:35.000+00:00 [0]: main.c/start_update_manager_plugins:105 Loaded module vn-module-sys-info-server.so
+1970-01-01T04:56:35.000+00:00 [0]: can time source attached
+1970-01-01T04:56:35.000+00:00 [0]: time-sync-modules.c/time_sync_plugins_start:110 Loaded module time-source-can.so
+1970-01-01T04:56:35.000+00:00 [0]: main.c/start_update_manager_plugins:105 Loaded module time-sync.so
+1970-01-01T04:56:35.000+00:00 [0]: (to system) root on none
+1970-01-01T04:56:35.000+00:00 [0]: pam_unix(su-l:session): session opened for user system by (uid=0)
+1970-01-01T04:56:35.000+00:00 [0]: pam_unix(runuser:session): session opened for user system by (uid=0)
+1970-01-01T04:56:35.000+00:00 [0]: pam_unix(su-l:session): session closed for user system
+1970-01-01T04:56:35.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-wait -P /usr/lib/lm_containers -n ivi -s RUNNING -t 30 [403]: pam_unix(runuser:session): session opened for user system by (uid=0)
+1970-01-01T04:56:35.890+00:00 []: [    0.000007] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 715827882841ns
+1970-01-01T04:56:35.890+00:00 []: [    0.000025] clocksource mxc_timer1: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 637086815595 ns
+1970-01-01T04:56:35.890+00:00 []: [    0.000946] Console: colour dummy device 80x30
+1970-01-01T04:56:35.890+00:00 []: [    0.000970] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=3000)
+1970-01-01T04:56:35.890+00:00 []: [    0.000988] pid_max: default: 32768 minimum: 301
+1970-01-01T04:56:35.890+00:00 []: [    0.001104] Mount-cache hash table entries: 4096 (order: 2, 16384 bytes)
+1970-01-01T04:56:35.890+00:00 []: [    0.001117] Mountpoint-cache hash table entries: 4096 (order: 2, 16384 bytes)
+1970-01-01T04:56:35.890+00:00 []: [    0.001740] Initializing cgroup subsys blkio
+1970-01-01T04:56:35.890+00:00 []: [    0.001759] Initializing cgroup subsys memory
+1970-01-01T04:56:35.890+00:00 []: [    0.001796] Initializing cgroup subsys devices
+1970-01-01T04:56:35.891+00:00 []: [    0.001811] Initializing cgroup subsys freezer
+1970-01-01T04:56:35.891+00:00 []: [    0.001839] CPU: Testing write buffer coherency: ok
+1970-01-01T04:56:35.891+00:00 []: [    0.002149] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+1970-01-01T04:56:35.891+00:00 []: [    0.002238] Setting up static identity map for 0x10008280 - 0x100082d8
+1970-01-01T04:56:35.891+00:00 []: [    0.008275] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+1970-01-01T04:56:35.891+00:00 []: [    0.010259] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+1970-01-01T04:56:35.891+00:00 []: [    0.012278] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+1970-01-01T04:56:35.891+00:00 []: [    0.012347] Brought up 4 CPUs
+1970-01-01T04:56:35.891+00:00 []: [    0.012372] SMP: Total of 4 processors activated (24.00 BogoMIPS).
+1970-01-01T04:56:35.891+00:00 []: [    0.012381] CPU: All CPU(s) started in SVC mode.
+1970-01-01T04:56:35.892+00:00 []: [    0.013029] devtmpfs: initialized
+1970-01-01T04:56:35.892+00:00 []: [    0.026856] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+1970-01-01T04:56:35.892+00:00 []: [    0.027228] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+1970-01-01T04:56:35.892+00:00 []: [    0.045188] pinctrl core: initialized pinctrl subsystem
+1970-01-01T04:56:35.892+00:00 []: [    0.046397] NET: Registered protocol family 16
+1970-01-01T04:56:35.892+00:00 []: [    0.055247] DMA: preallocated 256 KiB pool for atomic coherent allocations
+1970-01-01T04:56:35.892+00:00 []: [    0.060696] cpuidle: using governor ladder
+1970-01-01T04:56:35.892+00:00 []: [    0.066694] cpuidle: using governor menu
+1970-01-01T04:56:35.892+00:00 []: [    0.066876] CPU identified as i.MX6QP, silicon rev 1.0
+1970-01-01T04:56:35.892+00:00 []: [    0.094892] imx6q-pinctrl 20e0000.iomuxc: no fsl,pins property in node /soc/aips-bus@02000000/iomuxc@020e0000/imx6qdl-halti/fpd_link
+1970-01-01T04:56:35.893+00:00 []: [    0.095316] imx6q-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
+1970-01-01T04:56:35.893+00:00 []: [    0.097424] imx-gpc 20dc000.gpc: no fsl,ldo-bypass found!
+1970-01-01T04:56:35.893+00:00 []: [    0.112772] VIO_3V3: supplied by VCC_4V3
+1970-01-01T04:56:35.893+00:00 []: [    0.113514] usb_h1_vbus: supplied by VCC_5V
+1970-01-01T04:56:35.893+00:00 []: [    0.114264] hub-pwr-en: supplied by VIO_3V3
+1970-01-01T04:56:35.893+00:00 []: [    0.115581] reg-wifi-pwr-on: supplied by VIO_3V3
+1970-01-01T04:56:35.893+00:00 []: [    0.116027] wlan-en: supplied by reg-wifi-pwr-on
+1970-01-01T04:56:35.893+00:00 []: [    0.116446] bt-en: supplied by reg-wifi-pwr-on
+1970-01-01T04:56:35.893+00:00 []: [    0.116875] gps-pwr: supplied by VIO_3V3
+1970-01-01T04:56:35.893+00:00 []: [    0.117299] gps-rst: supplied by gps-pwr
+1970-01-01T04:56:35.895+00:00 []: [    0.117767] sd2_pwr_en: supplied by VIO_3V3
+1970-01-01T04:56:35.895+00:00 []: [    0.118155] lan_3v3_en: supplied by VIO_3V3
+1970-01-01T04:56:35.895+00:00 []: [    0.118511] vgaarb: loaded
+1970-01-01T04:56:35.895+00:00 []: [    0.119378] SCSI subsystem initialized
+1970-01-01T04:56:35.895+00:00 []: [    0.119706] usbcore: registered new interface driver usbfs
+1970-01-01T04:56:35.895+00:00 []: [    0.119802] usbcore: registered new interface driver hub
+1970-01-01T04:56:35.895+00:00 []: [    0.119913] usbcore: registered new device driver usb
+1970-01-01T04:56:35.895+00:00 []: [    0.121299] i2c i2c-0: IMX I2C adapter registered
+1970-01-01T04:56:35.895+00:00 []: [    0.121320] i2c i2c-0: can't use DMA
+1970-01-01T04:56:35.895+00:00 []: [    0.124326] i2c i2c-2: IMX I2C adapter registered
+1970-01-01T04:56:35.896+00:00 []: [    0.124347] i2c i2c-2: can't use DMA
+1970-01-01T04:56:35.896+00:00 []: [    0.124518] Linux video capture interface: v2.00
+1970-01-01T04:56:35.896+00:00 []: [    0.124579] pps_core: LinuxPPS API ver. 1 registered
+1970-01-01T04:56:35.896+00:00 []: [    0.124589] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+1970-01-01T04:56:35.896+00:00 []: [    0.124627] PTP clock support registered
+1970-01-01T04:56:35.896+00:00 []: [    0.126757] imx-ipuv3 2400000.ipu: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
+1970-01-01T04:56:35.896+00:00 []: [    0.129754] imx-ipuv3 2800000.ipu: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
+1970-01-01T04:56:35.896+00:00 []: [    0.130734] MIPI CSI2 driver module loaded
+1970-01-01T04:56:35.896+00:00 []: [    0.131004] Advanced Linux Sound Architecture Driver Initialized.
+1970-01-01T04:56:35.896+00:00 []: [    0.132406] Bluetooth: Core ver 2.20
+1970-01-01T04:56:35.898+00:00 []: [    0.132455] NET: Registered protocol family 31
+1970-01-01T04:56:35.898+00:00 []: [    0.132465] Bluetooth: HCI device and connection manager initialized
+1970-01-01T04:56:35.898+00:00 []: [    0.132483] Bluetooth: HCI socket layer initialized
+1970-01-01T04:56:35.898+00:00 []: [    0.132499] Bluetooth: L2CAP socket layer initialized
+1970-01-01T04:56:35.898+00:00 []: [    0.132537] Bluetooth: SCO socket layer initialized
+1970-01-01T04:56:35.898+00:00 []: [    0.133006] Switched to clocksource mxc_timer1
+1970-01-01T04:56:35.898+00:00 []: [    0.145901] NET: Registered protocol family 2
+1970-01-01T04:56:35.898+00:00 []: [    0.146616] TCP established hash table entries: 16384 (order: 4, 65536 bytes)
+1970-01-01T04:56:35.898+00:00 []: [    0.146765] TCP bind hash table entries: 16384 (order: 5, 131072 bytes)
+1970-01-01T04:56:35.898+00:00 []: [    0.147039] TCP: Hash tables configured (established 16384 bind 16384)
+1970-01-01T04:56:35.899+00:00 []: [    0.147114] UDP hash table entries: 1024 (order: 3, 32768 bytes)
+1970-01-01T04:56:35.899+00:00 []: [    0.147185] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes)
+1970-01-01T04:56:35.899+00:00 []: [    0.147440] NET: Registered protocol family 1
+1970-01-01T04:56:35.899+00:00 []: [    0.147500] PCI: CLS 0 bytes, default 64
+1970-01-01T04:56:35.899+00:00 []: [    0.148413] imx rpmsg driver is registered.
+1970-01-01T04:56:35.899+00:00 []: [    0.149522] Bus freq driver module loaded
+1970-01-01T04:56:35.899+00:00 []: [    0.150711] futex hash table entries: 1024 (order: 4, 65536 bytes)
+1970-01-01T04:56:35.899+00:00 []: [    0.159181] fuse init (API version 7.23)
+1970-01-01T04:56:35.899+00:00 []: [    0.163862] bounce: pool size: 64 pages
+1970-01-01T04:56:35.899+00:00 []: [    0.163885] io scheduler noop registered
+1970-01-01T04:56:35.900+00:00 []: [    0.163904] io scheduler deadline registered
+1970-01-01T04:56:35.900+00:00 []: [    0.163960] io scheduler cfq registered (default)
+1970-01-01T04:56:35.900+00:00 []: [    0.167641] mxc_hdmi 20e0000.hdmi_video: Detected HDMI controller 0x13:0xa:0xa0:0xc1
+1970-01-01T04:56:35.900+00:00 []: [    0.167673] fbcvt: 1024x768@70: CVT Name - .786M3
+1970-01-01T04:56:35.900+00:00 []: [    0.167810] mxc_sdc_fb fb@0: registered mxc display driver hdmi
+1970-01-01T04:56:35.900+00:00 []: [    0.173479] mxc_sdc_fb fb@0: lm-splash fb remap, addr e59ff01c asize 5a383b00, size 00180000
+1970-01-01T04:56:35.900+00:00 []: [    0.173489] mxc_sdc_fb fb@0: Unable to remap bootsplash for 0
+1970-01-01T04:56:35.900+00:00 []: [    0.174111] imx-ipuv3 2400000.ipu: WARNING: adapt panel end blank lines
+1970-01-01T04:56:35.900+00:00 []: [    0.180092] imx-ipuv3 2400000.ipu: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
+1970-01-01T04:56:35.900+00:00 []: [    0.213583] imx-ipuv3 2400000.ipu: WARNING: adapt panel end blank lines
+1970-01-01T04:56:35.901+00:00 []: [    0.219286] Console: switching to colour frame buffer device 128x48
+1970-01-01T04:56:35.901+00:00 []: [    0.265973] mxc_sdc_fb fb@1: registered mxc display driver ldb
+1970-01-01T04:56:35.901+00:00 []: [    0.270810] mxc_sdc_fb fb@1: lm-splash fb remap, addr e59ff01c asize 5a383b00, size 0012c000
+1970-01-01T04:56:35.901+00:00 []: [    0.270820] mxc_sdc_fb fb@1: Unable to remap bootsplash for 1
+1970-01-01T04:56:35.901+00:00 []: [    0.277561] mxc_sdc_fb fb@2: registered mxc display driver ldb
+1970-01-01T04:56:35.901+00:00 []: [    0.295210] imx-sdma 20ec000.sdma: no iram assigned, using external mem
+1970-01-01T04:56:35.901+00:00 []: [    0.295690] imx-sdma 20ec000.sdma: no event needs to be remapped
+1970-01-01T04:56:35.901+00:00 []: [    0.296157] imx-sdma 20ec000.sdma: loaded firmware 3.3
+1970-01-01T04:56:35.901+00:00 []: [    0.300100] imx-sdma 20ec000.sdma: initialized
+1970-01-01T04:56:35.901+00:00 []: [    0.319323] imx-ipuv3 2400000.ipu: WARNING: adapt panel end blank lines
+1970-01-01T04:56:35.902+00:00 []: [    0.358532] imx-ipuv3 2400000.ipu: WARNING: adapt panel end blank lines
+1970-01-01T04:56:35.902+00:00 []: [    0.443035] 21e8000.serial: ttymxc1 at MMIO 0x21e8000 (irq = 298, base_baud = 5000000) is a IMX
+1970-01-01T04:56:35.902+00:00 []: [    0.443683] 21ec000.serial: ttymxc2 at MMIO 0x21ec000 (irq = 299, base_baud = 5000000) is a IMX
+1970-01-01T04:56:35.902+00:00 []: [    0.444268] imx-uart 21f0000.serial: dummy supplies not allowed
+1970-01-01T04:56:35.902+00:00 []: [    0.444281] 21f0000.serial: ttymxc3 at MMIO 0x21f0000 (irq = 300, base_baud = 5000000) is a IMX
+1970-01-01T04:56:35.902+00:00 []: [    1.386819] console [ttymxc3] enabled
+1970-01-01T04:56:35.902+00:00 []: [    1.387460] imx-uart 21f4000.serial: dummy supplies not allowed
+1970-01-01T04:56:35.902+00:00 []: [    1.387473] 21f4000.serial: ttymxc4 at MMIO 0x21f4000 (irq = 301, base_baud = 5000000) is a IMX
+1970-01-01T04:56:35.902+00:00 []: [    1.388740] imx-ipuv3 2400000.ipu: WARNING: adapt panel end blank lines
+1970-01-01T04:56:35.902+00:00 []: [    1.389668] imx sema4 driver is registered.
+1970-01-01T04:56:35.902+00:00 []: [    1.389737] [drm] Initialized drm 1.1.0 20060810
+1970-01-01T04:56:35.902+00:00 []: [    1.390242] [drm] Initialized vivante 1.0.0 20120216 on minor 0
+1970-01-01T04:56:35.902+00:00 []: [    1.399844] brd: module loaded
+1970-01-01T04:56:35.902+00:00 []: [    1.400449] halti_mcu 20a4000.halti-mcu: pm_power_off set
+1970-01-01T04:56:35.902+00:00 []: [    1.406045] si476x-core 2-0060: Using default platform data.
+1970-01-01T04:56:35.902+00:00 []: [    1.406068] 2-0060 supply vd not found, using dummy regulator
+1970-01-01T04:56:35.902+00:00 []: [    1.406124] 2-0060 supply va not found, using dummy regulator
+1970-01-01T04:56:35.902+00:00 []: [    1.406168] 2-0060 supply vio1 not found, using dummy regulator
+1970-01-01T04:56:35.902+00:00 []: [    1.406209] 2-0060 supply vio2 not found, using dummy regulator
+1970-01-01T04:56:35.902+00:00 []: [    1.406257] si476x-core 2-0060: No IRQ number specified, will use polling
+1970-01-01T04:56:35.902+00:00 []: [    1.625378] si476x-core 2-0060: fw maj.min0.min1 patchid 13.0.11 0000
+1970-01-01T04:56:35.902+00:00 []: [    1.781980] ti927 0-001a: fpk-link0 : Remote device not connected, Power Down ti927 and quit
+1970-01-01T04:56:35.902+00:00 []: [    1.840638] ti927 0-0017: fpk-link1 : Remote device not connected, Power Down ti927 and quit
+1970-01-01T04:56:35.902+00:00 []: [    1.852447] m25p80 spi0.0: m25p16 (2048 Kbytes)
+1970-01-01T04:56:35.902+00:00 []: [    1.857842] spi_imx 2008000.ecspi: probed
+1970-01-01T04:56:35.902+00:00 []: [    1.862892] spi_imx 2014000.ecspi: probed
+1970-01-01T04:56:35.902+00:00 []: [    1.868136] vcan: Virtual CAN interface driver
+1970-01-01T04:56:35.902+00:00 []: [    1.872629] CAN device driver interface
+1970-01-01T04:56:35.902+00:00 []: [    1.876671] 2090000.flexcan supply xceiver not found, using dummy regulator
+1970-01-01T04:56:35.902+00:00 []: [    1.884430] flexcan 2090000.flexcan: gpr /soc/aips-bus@02000000/iomuxc-gpr@020e0000 req_gpr 0x34 req_bit 28 ack_gpr 0x10 ack_bit 17
+1970-01-01T04:56:35.903+00:00 []: [    1.884494] flexcan 2090000.flexcan: device registered (reg_base=f02c8000, irq=31)
+1970-01-01T04:56:35.903+00:00 []: [    1.892168] 2094000.flexcan supply xceiver not found, using dummy regulator
+1970-01-01T04:56:35.903+00:00 []: [    1.899860] flexcan 2094000.flexcan: gpr /soc/aips-bus@02000000/iomuxc-gpr@020e0000 req_gpr 0x34 req_bit 29 ack_gpr 0x10 ack_bit 18
+1970-01-01T04:56:35.903+00:00 []: [    1.899921] flexcan 2094000.flexcan: device registered (reg_base=f02d0000, irq=32)
+1970-01-01T04:56:35.903+00:00 []: [    1.907887] bnx2x: Broadcom NetXtreme II 5771x/578xx 10/20-Gigabit Ethernet Driver bnx2x 1.710.51-0 (2014/02/10)
+1970-01-01T04:56:35.903+00:00 []: [    1.919594] 2188000.ethernet supply phy not found, using dummy regulator
+1970-01-01T04:56:35.903+00:00 []: [    1.926796] pps pps0: new PPS source ptp0
+1970-01-01T04:56:35.903+00:00 []: [    1.931632] fec 2188000.ethernet (unnamed net_device) (uninitialized): Invalid MAC address: 00:00:00:00:00:00
+1970-01-01T04:56:35.903+00:00 []: [    1.941604] fec 2188000.ethernet (unnamed net_device) (uninitialized): Using random MAC address: 1a:24:b6:82:b5:f8
+1970-01-01T04:56:35.903+00:00 []: [    1.965887] libphy: fec_enet_mii_bus: probed
+1970-01-01T04:56:35.903+00:00 []: [    1.970787] fec 2188000.ethernet eth0: registered PHC device 0
+1970-01-01T04:56:35.903+00:00 []: [    1.976977] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+1970-01-01T04:56:35.903+00:00 []: [    1.983578] ehci-pci: EHCI PCI platform driver
+1970-01-01T04:56:35.903+00:00 []: [    1.988178] usbcore: registered new interface driver cdc_wdm
+1970-01-01T04:56:35.903+00:00 []: [    1.993960] usbcore: registered new interface driver usb-storage
+1970-01-01T04:56:35.903+00:00 []: [    2.001443] 2184800.usbmisc supply vbus-wakeup not found, using dummy regulator
+1970-01-01T04:56:35.903+00:00 []: [    2.013089] ci_hdrc ci_hdrc.0: doesn't support gadget
+1970-01-01T04:56:35.903+00:00 []: [    2.018192] ci_hdrc ci_hdrc.0: EHCI Host Controller
+1970-01-01T04:56:35.903+00:00 []: [    2.023126] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus number 1
+1970-01-01T04:56:35.903+00:00 []: [    2.036050] ci_hdrc ci_hdrc.0: USB 2.0 started, EHCI 1.00
+1970-01-01T04:56:35.903+00:00 []: [    2.042467] hub 1-0:1.0: USB hub found
+1970-01-01T04:56:35.903+00:00 []: [    2.046316] hub 1-0:1.0: 1 port detected
+1970-01-01T04:56:35.903+00:00 []: [    2.054396] ci_hdrc ci_hdrc.1: EHCI Host Controller
+1970-01-01T04:56:35.903+00:00 []: [    2.059336] ci_hdrc ci_hdrc.1: new USB bus registered, assigned bus number 2
+1970-01-01T04:56:35.903+00:00 []: [    2.072050] ci_hdrc ci_hdrc.1: USB 2.0 started, EHCI 1.00
+1970-01-01T04:56:35.903+00:00 []: [    2.078346] hub 2-0:1.0: USB hub found
+1970-01-01T04:56:35.903+00:00 []: [    2.082174] hub 2-0:1.0: 1 port detected
+1970-01-01T04:56:35.903+00:00 []: [    2.087408] usbcore: registered new interface driver usbtouchscreen
+1970-01-01T04:56:35.903+00:00 []: [    2.093778] usbcore: registered new interface driver powermate
+1970-01-01T04:56:35.903+00:00 []: [    2.100360] snvs_rtc 20cc000.snvs:snvs-rtc-lp: rtc core: registered 20cc000.snvs:snvs-r as rtc0
+1970-01-01T04:56:35.903+00:00 []: [    2.109256] i2c /dev entries driver
+1970-01-01T04:56:35.903+00:00 []: [    2.114135] DBG sensor data is at 809c98f0
+1970-01-01T04:56:35.903+00:00 []: [    2.256590] mxc_v4l2_output v4l2_out: V4L2 device registered as video16
+1970-01-01T04:56:35.903+00:00 []: [    2.263422] mxc_v4l2_output v4l2_out: V4L2 device registered as video17
+1970-01-01T04:56:35.903+00:00 []: [    2.270239] mxc_v4l2_output v4l2_out: V4L2 device registered as video18
+1970-01-01T04:56:35.903+00:00 []: [    2.277071] mxc_v4l2_output v4l2_out: V4L2 device registered as video19
+1970-01-01T04:56:35.903+00:00 []: [    2.283885] mxc_v4l2_output v4l2_out: V4L2 device registered as video20
+1970-01-01T04:56:35.903+00:00 []: [    2.291792] imx2-wdt 20bc000.wdog: timeout 60 sec (nowayout=0)
+1970-01-01T04:56:35.903+00:00 []: [    2.297849] Bluetooth: HCI UART driver ver 2.3
+1970-01-01T04:56:35.903+00:00 []: [    2.302330] Bluetooth: HCI UART protocol H4 registered
+1970-01-01T04:56:35.905+00:00 []: [    2.307497] Bluetooth: HCI UART protocol BCSP registered
+1970-01-01T04:56:35.905+00:00 []: [    2.312835] Bluetooth: HCI UART protocol LL registered
+1970-01-01T04:56:35.905+00:00 []: [    2.318235] sdhci: Secure Digital Host Controller Interface driver
+1970-01-01T04:56:35.905+00:00 []: [    2.324448] sdhci: Copyright(c) Pierre Ossman
+1970-01-01T04:56:35.905+00:00 []: [    2.328839] sdhci-pltfm: SDHCI platform and OF driver helper
+1970-01-01T04:56:35.905+00:00 []: [    2.335618] sdhci-esdhc-imx 2190000.usdhc: could not get default state
+1970-01-01T04:56:35.905+00:00 []: [    2.342629] sdhci-esdhc-imx 2190000.usdhc: assigned as wifi host
+1970-01-01T04:56:35.905+00:00 []: [    2.350090] sdhci-esdhc-imx 2190000.usdhc: No vqmmc regulator found
+1970-01-01T04:56:35.905+00:00 []: [    2.393049] usb 2-1: new high-speed USB device number 2 using ci_hdrc
+1970-01-01T04:56:35.905+00:00 []: [    2.457047] mmc0: SDHCI controller on 2190000.usdhc [2190000.usdhc] using ADMA
+1970-01-01T04:56:35.906+00:00 []: [    2.465729] sdhci-esdhc-imx 2194000.usdhc: Got CD GPIO
+1970-01-01T04:56:35.906+00:00 []: [    2.481395] mmc_attach_sdio, mmc0 entering
+1970-01-01T04:56:35.906+00:00 []: [    2.485528] mmc_attach_sdio, resetting wlan now
+1970-01-01T04:56:35.906+00:00 []: [    2.500897] mmc0: queuing unknown CIS tuple 0x80 (2 bytes)
+1970-01-01T04:56:35.906+00:00 []: [    2.506621] mmc1: SDHCI controller on 2194000.usdhc [2194000.usdhc] using ADMA
+1970-01-01T04:56:35.906+00:00 []: [    2.508278] mmc0: queuing unknown CIS tuple 0x80 (3 bytes)
+1970-01-01T04:56:35.906+00:00 []: [    2.510038] mmc0: queuing unknown CIS tuple 0x80 (3 bytes)
+1970-01-01T04:56:35.906+00:00 []: [    2.513195] mmc0: queuing unknown CIS tuple 0x80 (7 bytes)
+1970-01-01T04:56:35.906+00:00 []: [    2.542403] hub 2-1:1.0: USB hub found
+1970-01-01T04:56:35.906+00:00 []: [    2.546326] hub 2-1:1.0: 2 ports detected
+1970-01-01T04:56:35.907+00:00 []: [    2.563046] mmc3: SDHCI controller on 219c000.usdhc [219c000.usdhc] using ADMA
+1970-01-01T04:56:35.907+00:00 []: [    2.571705] mxc_vpu 2040000.vpu_fsl: VPU initialized
+1970-01-01T04:56:35.907+00:00 []: [    2.577354] mxc_vdoa 21e4000.vdoa: i.MX Video Data Order Adapter(VDOA) driver probed
+1970-01-01T04:56:35.907+00:00 []: [    2.585831] Galcore version 5.0.11.41671
+1970-01-01T04:56:35.907+00:00 []: [    2.620015] mmc0: new high speed SDIO card at address 0001
+1970-01-01T04:56:35.907+00:00 []: [    2.649395] mmc_attach_sdio, mmc1 entering
+1970-01-01T04:56:35.907+00:00 []: [    2.794288] mmc1: host does not support reading read-only switch, assuming write-enable
+1970-01-01T04:56:35.907+00:00 []: [    2.809595] mmc1: new high speed SDHC card at address aaaa
+1970-01-01T04:56:35.907+00:00 []: [    2.815803] mmcblk1: mmc1:aaaa SE16G 14.8 GiB 
+1970-01-01T04:56:35.907+00:00 []: [    2.826038] usb 2-1.1: new full-speed USB device number 3 using ci_hdrc
+1970-01-01T04:56:35.908+00:00 []: [    2.835110]  mmcblk1: p1 p2 p3 p4 p5 p6 p7 p8
+1970-01-01T04:56:35.908+00:00 []: [    2.867413] mmc_attach_sdio, mmc3 entering
+1970-01-01T04:56:35.908+00:00 []: [    2.926576] mmc3: MAN_BKOPS_EN bit is not set
+1970-01-01T04:56:35.908+00:00 []: [    2.940983] mmc3: Switching to 1.8V signalling voltage failed
+1970-01-01T04:56:35.908+00:00 []: [    2.956604] mmc3: new DDR MMC card at address 0001
+1970-01-01T04:56:35.908+00:00 []: [    2.962037] mmcblk3: mmc3:0001 R1J57L 29.1 GiB 
+1970-01-01T04:56:35.908+00:00 []: [    2.966810] mmcblk3boot0: mmc3:0001 R1J57L partition 1 8.00 MiB
+1970-01-01T04:56:35.908+00:00 []: [    2.972968] mmcblk3boot1: mmc3:0001 R1J57L partition 2 8.00 MiB
+1970-01-01T04:56:35.908+00:00 []: [    2.979115] mmcblk3rpmb: mmc3:0001 R1J57L partition 3 4.00 MiB
+1970-01-01T04:56:35.908+00:00 []: [    2.988037] usb 2-1.1: new high-speed USB device number 4 using ci_hdrc
+1970-01-01T04:56:35.908+00:00 []: [    2.989622]  mmcblk3: p1 p2 p3 p4 p5 p6 p7 p8
+1970-01-01T04:56:35.908+00:00 []: [    3.146121] cryptodev: driver 1.8 loaded.
+1970-01-01T04:56:35.908+00:00 []: [    3.150510] usbcore: registered new interface driver usbhid
+1970-01-01T04:56:35.908+00:00 []: [    3.156119] usbhid: USB HID core driver
+1970-01-01T04:56:35.908+00:00 []: [    3.163068] fsl-asrc 2034000.asrc: driver registered
+1970-01-01T04:56:35.908+00:00 []: [    3.176802] imx-wm8974 sound-wm8974: wm8974-hifi <-> 202c000.ssi mapping ok
+1970-01-01T04:56:35.908+00:00 []: [    3.275041] usb 2-1.2: new high-speed USB device number 5 using ci_hdrc
+1970-01-01T04:56:35.908+00:00 []: [    3.286420] imx-wm8988 sound-wm8988: imx_wm8988_probe()
+1970-01-01T04:56:35.908+00:00 []: [    3.298173] imx-wm8988 sound-wm8988: wm8988-hifi <-> 2028000.ssi mapping ok
+1970-01-01T04:56:35.908+00:00 []: [    3.305256] imx_wm8988_late_probe() data->clk_frequency=24000000
+1970-01-01T04:56:35.911+00:00 []: [    3.418237] imx-audio-hdmi sound-hdmi: hdmi-hifi <-> soc:hdmi_audio@00120000 mapping ok
+1970-01-01T04:56:35.911+00:00 []: [    3.427382] audmux-bt-pcm sound-bt: Using audmux ports 7 and 6
+1970-01-01T04:56:35.911+00:00 []: [    3.433280] bt_imx_fake_audio: dai_fmt 0 1:1
+1970-01-01T04:56:35.911+00:00 []: [    3.437580] bt_imx_fake_audio: dai_fmt 1 201:200
+1970-01-01T04:56:35.911+00:00 []: [    3.442225] bt_imx_fake_audio: dai_fmt 2 4201:4000
+1970-01-01T04:56:35.911+00:00 []: [    3.449421] audmux-bt-pcm sound-bt: snd-soc-dummy-dai <-> 2030000.ssi mapping ok
+1970-01-01T04:56:35.911+00:00 []: [    3.457873] NET: Registered protocol family 26
+1970-01-01T04:56:35.911+00:00 []: [    3.462563] NET: Registered protocol family 17
+1970-01-01T04:56:35.911+00:00 []: [    3.467064] can: controller area network core (rev 20120528 abi 9)
+1970-01-01T04:56:35.911+00:00 []: [    3.473351] NET: Registered protocol family 29
+1970-01-01T04:56:35.911+00:00 []: [    3.477855] can: raw protocol (rev 20120528)
+1970-01-01T04:56:35.911+00:00 []: [    3.482164] can: broadcast manager protocol (rev 20120528 t)
+1970-01-01T04:56:35.911+00:00 []: [    3.487866] can: netlink gateway (rev 20130117) max_hops=1
+1970-01-01T04:56:35.911+00:00 []: [    3.493571] 8021q: 802.1Q VLAN Support v1.8
+1970-01-01T04:56:35.911+00:00 []: [    3.497853] Key type dns_resolver registered
+1970-01-01T04:56:35.911+00:00 []: [    3.503969] Registering SWP/SWPB emulation handler
+1970-01-01T04:56:35.911+00:00 []: [    3.509965] MTD device size 2097152, eraseblock size 65536, OOB size 0
+1970-01-01T04:56:35.911+00:00 []: [    3.516640] snvs_rtc 20cc000.snvs:snvs-rtc-lp: setting system clock to 1970-01-01 04:56:34 UTC (17794)
+1970-01-01T04:56:35.911+00:00 []: [    3.536948] ALSA device list:
+1970-01-01T04:56:35.911+00:00 []: [    3.539958]   #0: wm8974-hifi
+1970-01-01T04:56:35.912+00:00 []: [    3.542959]   #1: wm8988-audio
+1970-01-01T04:56:35.912+00:00 []: [    3.546047]   #2: imx-hdmi-soc
+1970-01-01T04:56:35.912+00:00 []: [    3.549125]   #3: audmux-bt-pcm
+1970-01-01T04:56:35.912+00:00 []: [    3.562553] EXT4-fs (mmcblk3p1): INFO: recovery required on readonly filesystem
+1970-01-01T04:56:35.912+00:00 []: [    3.569902] EXT4-fs (mmcblk3p1): write access will be enabled during recovery
+1970-01-01T04:56:35.912+00:00 []: [    3.585949] EXT4-fs (mmcblk3p1): recovery complete
+1970-01-01T04:56:35.912+00:00 []: [    3.591428] EXT4-fs (mmcblk3p1): mounted filesystem with ordered data mode. Opts: (null)
+1970-01-01T04:56:35.912+00:00 []: [    3.599569] VFS: Mounted root (ext4 filesystem) readonly on device 179:17. (epit: 4287872752)
+1970-01-01T04:56:35.912+00:00 []: [    3.609256] devtmpfs: mounted
+1970-01-01T04:56:35.912+00:00 []: [    3.612899] Freeing unused kernel memory: 860K (80867000 - 8093e000)
+1970-01-01T04:56:35.912+00:00 []: [    3.680977] random: platform-init urandom read with 41 bits of entropy available
+1970-01-01T04:56:35.912+00:00 []: [    3.729927] EXT4-fs (mmcblk3p2): recovery complete
+1970-01-01T04:56:35.912+00:00 []: [    3.737932] EXT4-fs (mmcblk3p2): mounted filesystem with ordered data mode. Opts: (null)
+1970-01-01T04:56:35.912+00:00 []: [    3.749875] EXT4-fs (mmcblk3p1): re-mounted. Opts: (null)
+1970-01-01T04:56:35.912+00:00 []:    3.811675] udevd[188]: starting version 3.1.5
+1970-01-01T04:56:35.912+00:00 []: [    3.817329] EXT4-fs (mmcblk3p7): recovery complete
+1970-01-01T04:56:35.912+00:00 []: [    3.825235] EXT4-fs (mmcblk3p7): mounted filesystem with ordered data mode. Opts: (null)
+1970-01-01T04:56:35.912+00:00 []: [    3.851333] EXT4-fs (mmcblk3p3): recovery complete
+1970-01-01T04:56:35.912+00:00 []: [    3.858148] EXT4-fs (mmcblk3p3): mounted filesystem with ordered data mode. Opts: (null)
+1970-01-01T04:56:35.912+00:00 []:    3.883889] udevd[188]: specified group 'dialout' unknown
+1970-01-01T04:56:35.915+00:00 []:    3.891691] udevd[188]: specified group 'cdrom' unknown
+1970-01-01T04:56:35.915+00:00 []:    3.898574] udevd[188]: specified group 'tape' unknown
+1970-01-01T04:56:35.915+00:00 []: [    4.012948] EXT4-fs (mmcblk3p4): recovery complete
+1970-01-01T04:56:35.915+00:00 []: [    4.022448] EXT4-fs (mmcblk3p4): mounted filesystem with ordered data mode. Opts: (null)
+1970-01-01T04:56:35.915+00:00 []: [    4.118934] input: Rotary encoder 0 as /devices/virtual/input/input0
+1970-01-01T04:56:35.915+00:00 []: [    4.136636] input: Rotary encoder 1 as /devices/virtual/input/input1
+1970-01-01T04:56:35.915+00:00 []: [    4.144696] input: Rotary encoder 2 as /devices/virtual/input/input2
+1970-01-01T04:56:35.915+00:00 []: [    4.164545] EXT4-fs (mmcblk3p8): recovery complete
+1970-01-01T04:56:35.915+00:00 []: [    4.178500] EXT4-fs (mmcblk3p8): mounted filesystem with ordered data mode. Opts: (null)
+1970-01-01T04:56:35.915+00:00 []: [    4.257459] usbcore: registered new interface driver usbserial
+1970-01-01T04:56:35.916+00:00 []: [    4.268657] usbcore: registered new interface driver r8152
+1970-01-01T04:56:35.916+00:00 []: [    4.300257] enter opt3001_probe
+1970-01-01T04:56:35.916+00:00 []: [    4.306385] opt3001 0-0044: failed to read register 7e
+1970-01-01T04:56:35.916+00:00 []: [    4.312221] cdc_ether 2-1.1:2.0 wwan0: register 'cdc_ether' at usb-ci_hdrc.1-1.1, Mobile Broadband Network Device, 00:1e:10:1f:00:00
+1970-01-01T04:56:35.916+00:00 []: [    4.312417] usbcore: registered new interface driver cdc_ether
+1970-01-01T04:56:35.916+00:00 []: [    4.326695] usbcore: registered new interface driver option
+1970-01-01T04:56:35.916+00:00 []: [    4.326758] usbserial: USB Serial support registered for GSM modem (1-port)
+1970-01-01T04:56:35.916+00:00 []: [    4.327165] option 2-1.1:2.2: GSM modem (1-port) converter detected
+1970-01-01T04:56:35.916+00:00 []: [    4.329168] usb 2-1.1: GSM modem (1-port) converter now attached to ttyUSB0
+1970-01-01T04:56:35.916+00:00 []: [    4.329337] option 2-1.1:2.3: GSM modem (1-port) converter detected
+1970-01-01T04:56:35.916+00:00 []: [    4.330288] usb 2-1.1: GSM modem (1-port) converter now attached to ttyUSB1
+1970-01-01T04:56:35.916+00:00 []: [    4.330468] option 2-1.1:2.4: GSM modem (1-port) converter detected
+1970-01-01T04:56:35.916+00:00 []: [    4.330988] usb 2-1.1: GSM modem (1-port) converter now attached to ttyUSB2
+1970-01-01T04:56:35.916+00:00 []: [    4.331177] option 2-1.1:2.5: GSM modem (1-port) converter detected
+1970-01-01T04:56:35.916+00:00 []: [    4.331644] usb 2-1.1: GSM modem (1-port) converter now attached to ttyUSB3
+1970-01-01T04:56:35.916+00:00 []: [    4.351113] usb 2-1.2: reset high-speed USB device number 5 using ci_hdrc
+1970-01-01T04:56:35.916+00:00 []: [    4.390107] cfg80211: World regulatory domain updated:
+1970-01-01T04:56:35.916+00:00 []: [    4.390118] cfg80211:  DFS Master region: unset
+1970-01-01T04:56:35.916+00:00 []: [    4.390119] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+1970-01-01T04:56:35.916+00:00 []: [    4.390126] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+1970-01-01T04:56:35.917+00:00 []: [    4.390131] cfg80211:   (2457000 KHz - 2482000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+1970-01-01T04:56:35.917+00:00 []: [    4.390137] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (N/A, 2000 mBm), (N/A)
+1970-01-01T04:56:35.917+00:00 []: [    4.390144] cfg80211:   (5170000 KHz - 5250000 KHz @ 80000 KHz, 160000 KHz AUTO), (N/A, 2000 mBm), (N/A)
+1970-01-01T04:56:35.917+00:00 []: [    4.390151] cfg80211:   (5250000 KHz - 5330000 KHz @ 80000 KHz, 160000 KHz AUTO), (N/A, 2000 mBm), (0 s)
+1970-01-01T04:56:35.917+00:00 []: [    4.390157] cfg80211:   (5490000 KHz - 5730000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
+1970-01-01T04:56:35.917+00:00 []: [    4.390162] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 2000 mBm), (N/A)
+1970-01-01T04:56:35.917+00:00 []: [    4.390167] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 0 mBm), (N/A)
+1970-01-01T04:56:35.917+00:00 []: [    4.470286] brcmfmac: F1 signature read @0x18000000=0x1531a9a6
+1970-01-01T04:56:35.917+00:00 []: [    4.477209] r8152 2-1.2:1.0 eth1: v1.08.6
+1970-01-01T04:56:35.917+00:00 []: [    4.500758] brcmfmac: brcmf_sdio_drivestrengthinit: No SDIO Drive strength init done for chip 43430 rev 1 pmurev 24
+1970-01-01T04:56:35.917+00:00 []: [    4.573768] opt3001: probe of 0-0044 failed with error -5
+1970-01-01T04:56:35.917+00:00 []: [    4.721518] brcmfmac: brcmf_c_preinit_dcmds: Firmware version = wl0: Nov 14 2016 00:32:49 version 7.45.41.32 (r662793) FWID 01-8b473c3f
+1970-01-01T04:56:35.917+00:00 []: [    4.748176] ip_tables: (C) 2000-2006 Netfilter Core Team
+1970-01-01T04:56:35.917+00:00 []: [    4.783578] brcmfmac: brcmf_cfg80211_reg_notifier: not a ISO3166 code
+1970-01-01T04:56:35.917+00:00 []: [    4.869523] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+1970-01-01T04:56:35.000+00:00 [359]: pam_unix(runuser:session): session closed for user system
+1970-01-01T04:56:35.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-info -P /usr/lib/lm_containers -n secure -pH [411]: pam_unix(runuser:session): session opened for user system by (uid=0)
+1970-01-01T04:56:35.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000001.327528 LOG iptables-init [207]: OK
+1970-01-01T04:56:35.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-info -P /usr/lib/lm_containers -n secure -pH [411]: pam_unix(runuser:session): session closed for user system
+1970-01-01T04:56:35.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000001.338166 INF iptables-init [207]: exit status 0
+1970-01-01T04:56:35.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000001.338444 INF iptables-init [0]: started
+1970-01-01T04:56:35.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000001.338513 INF connman [0]: starting, type 5
+1970-01-01T04:56:35.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000001.339203 DBG connman [420]: pid 420
+1970-01-01T04:56:35.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-wait -P /usr/lib/lm_containers -n ivi -s RUNNING -t 10 [419]: pam_unix(runuser:session): session opened for user system by (uid=0)
+1970-01-01T04:56:35.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-wait -P /usr/lib/lm_containers -n ivi -s RUNNING -t 30 [403]: pam_unix(runuser:session): session closed for user system
+1970-01-01T04:56:36.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-info -P /usr/lib/lm_containers -n ivi -pH [424]: pam_unix(runuser:session): session opened for user system by (uid=0)
+1970-01-01T04:56:36.028+00:00 /sbin/init [379]: INF  [0]: hituinit starting
+1970-01-01T04:56:36.035+00:00 /sbin/init [379]: INF sdn [0]: starting, type 4
+1970-01-01T04:56:36.035+00:00 /sbin/init [379]: INF init [0]: starting, type 1
+1970-01-01T04:56:36.042+00:00 /sbin/init [379]: INF tty1 [0]: starting, type 2
+1970-01-01T04:56:36.042+00:00 /sbin/init [379]: INF tty2 [0]: starting, type 2
+1970-01-01T04:56:36.042+00:00 /sbin/init [379]: INF tty2 [5]: started
+1970-01-01T04:56:36.042+00:00 /sbin/init [379]: INF tty1 [4]: started
+1970-01-01T04:56:36.042+00:00 /sbin/init [379]: INF sdn [0]: started
+1970-01-01T04:56:36.000+00:00 [419]: pam_unix(runuser:session): session closed for user system
+1970-01-01T04:56:36.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-info -P /usr/lib/lm_containers -n ivi -pH [424]: pam_unix(runuser:session): session closed for user system
+1970-01-01T04:56:36.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-info -P /usr/lib/lm_containers -n ivi -pH [431]: pam_unix(runuser:session): session opened for user system by (uid=0)
+1970-01-01T04:56:36.000+00:00 /sbin/runuser system -c XDG_RUNTIME_DIR=/run/user/20000 /usr/bin/lxc-info -P /usr/lib/lm_containers -n ivi -pH [431]: pam_unix(runuser:session): session closed for user system
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF init [3]: exit status 0
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF init [0]: started
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF iptables-init [0]: starting, type 1
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF dbus-system [0]: starting, type 4
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF dbus-system [0]: started
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF ModemManager [0]: starting, type 2
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF ModemManager [7]: started
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF ofonod [0]: starting, type 2
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF ofonod [8]: started
+1970-01-01T04:56:36.256+00:00 /sbin/init [379]: INF dbus-system-daemon [0]: starting, type 2
+1970-01-01T04:56:36.258+00:00 /sbin/init [379]: INF dbus-system-daemon [9]: started
+1970-01-01T04:56:36.258+00:00 /sbin/init [379]: INF syslog-sw [0]: starting, type 7
+1970-01-01T04:56:36.258+00:00 /sbin/init [379]: INF syslog-sw [0]: started
+1970-01-01T04:56:36.268+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: int main(int, char**) ui_cluster Existing library paths  ("/usr/lib/qt5/plugins")
+1970-01-01T04:56:36.268+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: int main(int, char**) ui_cluster Resetting library paths to  "/usr/lib/qt5/minimal-plugin-set"
+1970-01-01T04:56:36.316+00:00 /sbin/init [383]: INF  [0]: hituinit starting
+1970-01-01T04:56:36.324+00:00 /sbin/init [383]: INF sdn [0]: starting, type 4
+1970-01-01T04:56:36.334+00:00 /sbin/init [383]: DBG sdn [0]: socket path /run/systemd_notify_socket
+1970-01-01T04:56:36.334+00:00 /sbin/init [383]: DBG sdn [0]: socket fd 5
+1970-01-01T04:56:36.334+00:00 /sbin/init [383]: INF init [0]: starting, type 1
+1970-01-01T04:56:36.339+00:00 /sbin/init [383]: DBG init [3]: pid 3
+1970-01-01T04:56:36.339+00:00 /sbin/init [383]: INF hciattach [0]: starting, type 1
+1970-01-01T04:56:36.339+00:00 /sbin/init [383]: DBG hciattach [4]: pid 4
+1970-01-01T04:56:36.339+00:00 /sbin/init [383]: INF gpsd-socket [0]: starting, type 4
+1970-01-01T04:56:36.339+00:00 /sbin/init [383]: DBG gpsd-socket [0]: socket path /run/gpsd.sock
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: DBG gpsd-socket [0]: socket fd 9
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: INF camveth-stat [0]: starting, type 3
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: INF tty1 [0]: starting, type 2
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: DBG tty1 [5]: pid 5
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: INF tty2 [0]: starting, type 2
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: DBG tty2 [6]: pid 6
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: DBG  [0]: start
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: INF tty2 [6]: started
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: INF tty1 [5]: started
+1970-01-01T04:56:36.431+00:00 /sbin/init [383]: INF gpsd-socket [0]: started
+1970-01-01T04:56:36.431+00:00 []: [    5.441510] random: nonblocking pool is initialized
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: INF sdn [0]: started
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: INF init [3]: exit status 0
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: INF init [0]: started
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: INF develstart [0]: starting, type 1
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: DBG develstart [7]: pid 7
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: INF alsactl [0]: starting, type 1
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: DBG alsactl [8]: pid 8
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: INF enable-audio [0]: starting, type 1
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: DBG enable-audio [9]: pid 9
+1970-01-01T04:56:36.432+00:00 /sbin/init [383]: INF gpsd-socket-ipv4 [0]: starting, type 4
+1970-01-01T04:56:36.433+00:00 /sbin/init [383]: DBG gpsd-socket-ipv4 [0]: socket path 127.0.0.1
+1970-01-01T04:56:36.433+00:00 /sbin/init [383]: DBG gpsd-socket-ipv4 [0]: socket fd 19
+1970-01-01T04:56:36.433+00:00 /sbin/init [383]: INF gpsd-socket-ipv4 [0]: started
+1970-01-01T04:56:36.433+00:00 /sbin/init [383]: INF gpsd-socket-ipv6 [0]: starting, type 4
+1970-01-01T04:56:36.433+00:00 /sbin/init [383]: DBG gpsd-socket-ipv6 [0]: socket path ::1
+1970-01-01T04:56:36.440+00:00 /sbin/init [383]: ERR gpsd-socket-ipv6 [0]: socket: Address family not supported by protocol
+1970-01-01T04:56:36.440+00:00 /sbin/init [383]: INF iptables-init [0]: starting, type 1
+1970-01-01T04:56:36.442+00:00 /sbin/init [383]: DBG iptables-init [10]: pid 10
+1970-01-01T04:56:36.442+00:00 /sbin/init [383]: INF dbus-session [0]: starting, type 4
+1970-01-01T04:56:36.442+00:00 /sbin/init [383]: DBG dbus-session [0]: socket path /tmp/user_bus_socket
+1970-01-01T04:56:36.442+00:00 /sbin/init [383]: DBG dbus-session [0]: socket fd 22
+1970-01-01T04:56:36.442+00:00 /sbin/init [383]: INF dbus-session [0]: started
+1970-01-01T04:56:36.442+00:00 /sbin/init [383]: INF dbus-session-daemon [0]: starting, type 2
+1970-01-01T04:56:36.444+00:00 /sbin/init [383]: DBG dbus-session-daemon [11]: pid 11
+1970-01-01T04:56:36.444+00:00 /sbin/init [383]: INF dbus-session-daemon [11]: started
+1970-01-01T04:56:36.444+00:00 /sbin/init [383]: INF dbus-system [0]: starting, type 4
+1970-01-01T04:56:36.445+00:00 /sbin/init [383]: DBG dbus-system [0]: socket path /run/dbus/system_bus_socket
+1970-01-01T04:56:36.446+00:00 /sbin/init [383]: DBG dbus-system [0]: socket fd 25
+1970-01-01T04:56:36.446+00:00 /sbin/init [383]: INF dbus-system [0]: started
+1970-01-01T04:56:36.446+00:00 /sbin/init [383]: INF dbus-system-daemon [0]: starting, type 2
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: DBG dbus-system-daemon [12]: pid 12
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: INF dbus-system-daemon [12]: started
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: INF syslog-sw [0]: starting, type 7
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: INF syslog-sw [0]: started
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: LOG dbus-session-daemon [11]: DBG dbus-session-daemon [0]: passing listen socket dbus-session, fd 22
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: DBG dbus-session-daemon [0]: running as 'system': 20000
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: LOG alsactl [8]: DBG alsactl [0]: running as 'system': 20000
+1970-01-01T04:56:36.447+00:00 /sbin/init [383]: LOG dbus-system-daemon [12]: DBG dbus-system-daemon [0]: passing listen socket dbus-system, fd 25
+1970-01-01T04:56:36.532+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: QEglFSImx6Hooks will set environment variable FB_MULTI_BUFFER=2 to enable double buffering and vsync.
+1970-01-01T04:56:36.532+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]:  If this is not desired, you can override this via: export QT_EGLFS_IMX6_NO_FB_MULTI_BUFFER=1
+1970-01-01T04:56:36.532+00:00 /sbin/init [383]: INF develstart [7]: exit status 32512 (ignored)
+1970-01-01T04:56:36.532+00:00 /sbin/init [383]: LOG develstart [7]: /bin/sh: 0: Can't open /var/lib/hituinit/develstart.sh
+1970-01-01T04:56:36.532+00:00 /sbin/init [383]: INF develstart [0]: started
+1970-01-01T04:56:36.625+00:00 /sbin/init [379]: LOG iptables-init [6]: /usr/libexec/iptables/iptables.init: line 71: /usr/bin/systemd-detect-virt: No such file or directory
+1970-01-01T04:56:36.632+00:00 /sbin/init [379]: LOG iptables-init [6]: /usr/libexec/iptables/iptables.init: line 72: lsmod: command not found
+1970-01-01T04:56:36.666+00:00 /sbin/init [379]: LOG iptables-init [6]: iptables: Applying firewall rules: 
+1970-01-01T04:56:36.695+00:00 /sbin/init [383]: LOG iptables-init [10]: /usr/libexec/iptables/iptables.init: line 71: /usr/bin/systemd-detect-virt: No such file or directory
+1970-01-01T04:56:36.736+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: Unable to query physical screen size, defaulting to 100 dpi.
+1970-01-01T04:56:36.736+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: To override, set QT_QPA_EGLFS_PHYSICAL_WIDTH and QT_QPA_EGLFS_PHYSICAL_HEIGHT (in millimeters).
+1970-01-01T04:56:36.756+00:00 /sbin/init [379]: LOG iptables-init [6]: OK
+1970-01-01T04:56:36.763+00:00 /sbin/init [383]: INF alsactl [8]: exit status 0
+1970-01-01T04:56:36.763+00:00 /sbin/init [383]: INF alsactl [0]: started
+1970-01-01T04:56:36.763+00:00 /sbin/init [383]: INF pulseaudio [0]: starting, type 2
+1970-01-01T04:56:36.763+00:00 /sbin/init [383]: DBG pulseaudio [22]: pid 22
+1970-01-01T04:56:36.763+00:00 /sbin/init [383]: INF pulseaudio [22]: started
+1970-01-01T04:56:36.763+00:00 /sbin/init [383]: INF wait-pulseaudio-startup [0]: starting, type 1
+1970-01-01T04:56:36.763+00:00 /sbin/init [383]: DBG wait-pulseaudio-startup [23]: pid 23
+1970-01-01T04:56:36.766+00:00 /sbin/init [479]: DBG wait-pulseaudio-startup [0]: running as 'system': 20000
+1970-01-01T04:56:36.769+00:00 /sbin/init [379]: INF iptables-init [6]: exit status 0
+1970-01-01T04:56:36.769+00:00 /sbin/init [379]: INF iptables-init [0]: started
+1970-01-01T04:56:36.769+00:00 /sbin/init [379]: INF connman [0]: starting, type 5
+1970-01-01T04:56:36.770+00:00 /sbin/init [478]: DBG pulseaudio [0]: running as 'system': 20000
+1970-01-01T04:56:36.825+00:00 /sbin/init [383]: LOG iptables-init [10]: iptables: Applying firewall rules: 
+1970-01-01T04:56:36.842+00:00 /sbin/init [383]: LOG iptables-init [10]: OK
+1970-01-01T04:56:36.852+00:00 /sbin/init [379]: LOG dbus-system-daemon [9]: Unknown username "org.c4c.ui_center" in message bus configuration file
+1970-01-01T04:56:36.854+00:00 /sbin/init [383]: INF iptables-init [10]: exit status 0
+1970-01-01T04:56:36.854+00:00 /sbin/init [383]: INF iptables-init [0]: started
+1970-01-01T04:56:36.854+00:00 /sbin/init [383]: INF connman [0]: starting, type 5
+1970-01-01T04:56:36.854+00:00 /sbin/init [383]: DBG connman [30]: pid 30
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ModemManager [438]: <info>  ModemManager (version 1.4.6) starting in system bus...
+1970-01-01T04:56:36.870+00:00 /sbin/init [379]: LOG ModemManager [7]: ModemManager[7]: <info>  ModemManager (version 1.4.6) starting in system bus...
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: oFono version 1.17
+1970-01-01T04:56:36.927+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: oFono version 1.17
+1970-01-01T04:56:36.940+00:00 /sbin/init [379]: LOG dbus-system-daemon [9]: dbus[9]: [system] org.freedesktop.DBus.Error.AccessDenied: Failed to set fd limit to 65536: Operation not permitted
+1970-01-01T04:56:36.000+00:00 /bin/dbus-daemon --nofork --system --nopidfile --address=systemd: [440]: [system] org.freedesktop.DBus.Error.AccessDenied: Failed to set fd limit to 65536: Operation not permitted
+1970-01-01T04:56:36.954+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring udev hardware detection
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring udev hardware detection
+1970-01-01T04:56:36.955+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring PhoNet / ISI modem driver
+1970-01-01T04:56:36.956+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Generic modem driver for isi
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring PhoNet / ISI modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Generic modem driver for isi
+1970-01-01T04:56:36.956+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Nokia N900 modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Nokia N900 modem driver
+1970-01-01T04:56:36.957+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ST-Ericsson U8500 modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Qualcomm QMI modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Qualcomm Gobi modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Novatel modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Sierra modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ZTE modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Icera modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Calypso modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring MBM modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Telit modem driver
+1970-01-01T04:56:36.958+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring HSO modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ST-Ericsson U8500 modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Qualcomm QMI modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Qualcomm Gobi modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Novatel modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Sierra modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ZTE modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Icera modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Calypso modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring MBM modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Telit modem driver
+1970-01-01T04:56:36.959+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Infineon modem driver
+1970-01-01T04:56:36.959+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring STE modem driver
+1970-01-01T04:56:36.959+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Dialup modem driver
+1970-01-01T04:56:36.959+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Hands-Free Profile Driver
+1970-01-01T04:56:36.959+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring SpeedUp modem driver
+1970-01-01T04:56:36.959+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Phone Simulator driver
+1970-01-01T04:56:36.961+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring CDMA AT modem driver
+1970-01-01T04:56:36.961+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring HTC G1 modem driver
+1970-01-01T04:56:36.961+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Wavecom driver
+1970-01-01T04:56:36.961+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring TI Calypso modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring HSO modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Infineon modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring STE modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Dialup modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Hands-Free Profile Driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring SpeedUp modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Phone Simulator driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring CDMA AT modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring HTC G1 modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Wavecom driver
+1970-01-01T04:56:36.962+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Ericsson MBM modem driver
+1970-01-01T04:56:36.962+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Option HSO modem driver
+1970-01-01T04:56:36.962+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ZTE modem driver
+1970-01-01T04:56:36.962+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Sierra Wireless modem driver
+1970-01-01T04:56:36.962+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Novatel Wireless modem driver
+1970-01-01T04:56:36.962+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Palm Pre driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring TI Calypso modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Ericsson MBM modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Option HSO modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ZTE modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Sierra Wireless modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Novatel Wireless modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Palm Pre driver
+1970-01-01T04:56:36.965+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Infineon modem driver
+1970-01-01T04:56:36.000+00:00 /usr/bin/vag-service -t [184]: audio_on_set_callback()
+1970-01-01T04:56:36.000+00:00 /usr/bin/vag-service -t [184]: set audio source: 0
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Infineon modem driver
+1970-01-01T04:56:36.967+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ST-Ericsson modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ST-Ericsson modem driver
+1970-01-01T04:56:36.969+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ST-Ericsson Modem Init Daemon detection
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ST-Ericsson Modem Init Daemon detection
+1970-01-01T04:56:36.970+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring CAIF device detection
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring CAIF device detection
+1970-01-01T04:56:36.970+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Cinterion driver plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Cinterion driver plugin
+1970-01-01T04:56:36.972+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Nokia Datacard modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Nokia Datacard modem driver
+1970-01-01T04:56:36.974+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Nokia CDMA AT Modem
+1970-01-01T04:56:36.975+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Linktop Datacard modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Nokia CDMA AT Modem
+1970-01-01T04:56:36.000+00:00 /usr/bin/vag-service -t [184]: set volume: 60
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Linktop Datacard modem driver
+1970-01-01T04:56:36.977+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Icera modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Icera modem driver
+1970-01-01T04:56:36.977+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Alcatel modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Alcatel modem driver
+1970-01-01T04:56:36.978+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Speed Up modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Speed Up modem driver
+1970-01-01T04:56:36.979+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Speed Up CDMA modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Speed Up CDMA modem driver
+1970-01-01T04:56:36.979+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Samsung modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Samsung modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring SIM900 modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ConnMan plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Telit HE910 driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Quectel driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring u-blox modem driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring BlueZ 5 Utils Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring External Hands-Free Profile Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Hands-Free Audio Gateway Profile Plugins
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Dial-up Networking Profile Plugins
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring SIM900 modem driver
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ConnMan plugin
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Telit HE910 driver
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Quectel driver
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring u-blox modem driver
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring BlueZ 5 Utils Plugin
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring External Hands-Free Profile Plugin
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Hands-Free Audio Gateway Profile Plugins
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Dial-up Networking Profile Plugins
+1970-01-01T04:56:36.981+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Provisioning Plugin
+1970-01-01T04:56:36.988+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring CDMA provisioning Plugin
+1970-01-01T04:56:36.988+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Smart Messaging Plugin
+1970-01-01T04:56:36.988+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring Push Notification Plugin
+1970-01-01T04:56:36.988+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ModemManager Modem Driver
+1970-01-01T04:56:36.988+00:00 /sbin/init [379]: LOG ofonod [8]: ofonod[8]: Ignoring ModemManager Proxy Plugin
+1970-01-01T04:56:36.988+00:00 /sbin/init [379]: ofonod[8]: Ignoring Plain PIN storage Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Provisioning Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring CDMA provisioning Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Smart Messaging Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Push Notification Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ModemManager Modem Driver
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring ModemManager Proxy Plugin
+1970-01-01T04:56:36.000+00:00 /usr/sbin/ofonod -n -p udevng,huawei,huaweimodem,atmodem [439]: Ignoring Plain PIN storage Plugin
+1970-01-01T04:56:37.010+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: Connection Manager version 1.30
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: Connection Manager version 1.30
+1970-01-01T04:56:37.015+00:00 /sbin/init [383]: LOG hciattach [4]: bcm43xx_init
+1970-01-01T04:56:37.015+00:00 /sbin/init [383]: Set Controller UART speed to 3000000 bit/s
+1970-01-01T04:56:37.015+00:00 /sbin/init [383]: Flash firmware /lib/firmware/brcm/BCM43430A1.hcd
+1970-01-01T04:56:37.015+00:00 /sbin/init [383]: Set Controller UART speed to 3000000 bit/s
+1970-01-01T04:56:37.015+00:00 /sbin/init [383]: Device setup complete
+1970-01-01T04:56:37.015+00:00 /sbin/init [383]: 34
+1970-01-01T04:56:37.018+00:00 /sbin/init [383]: INF hciattach [4]: exit status 0
+1970-01-01T04:56:37.018+00:00 /sbin/init [383]: INF hciattach [0]: started
+1970-01-01T04:56:37.018+00:00 /sbin/init [383]: INF bluetoothd [0]: starting, type 5
+1970-01-01T04:56:37.018+00:00 /sbin/init [383]: DBG bluetoothd [35]: pid 35
+1970-01-01T04:56:37.079+00:00 /sbin/init [383]: LOG dbus-system-daemon [12]: Unknown username "pulse" in message bus configuration file
+1970-01-01T04:56:37.093+00:00 /sbin/init [383]: INF enable-audio [9]: exit status 0 (ignored)
+1970-01-01T04:56:37.093+00:00 /sbin/init [383]: INF enable-audio [0]: started
+1970-01-01T04:56:37.093+00:00 /sbin/init [383]: INF ui-center [0]: starting, type 5
+1970-01-01T04:56:37.093+00:00 /sbin/init [383]: DBG ui-center [36]: pid 36
+1970-01-01T04:56:37.095+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: Connection Manager version 1.30
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: Connection Manager version 1.30
+1970-01-01T04:56:37.000+00:00 /bin/dbus-daemon --nofork --system --nopidfile --address=systemd: [454]: [system] org.freedesktop.DBus.Error.AccessDenied: Failed to set fd limit to 65536: Operation not permitted
+1970-01-01T04:56:37.102+00:00 /sbin/init [383]: LOG dbus-system-daemon [12]: dbus[12]: [system] org.freedesktop.DBus.Error.AccessDenied: Failed to set fd limit to 65536: Operation not permitted
+1970-01-01T04:56:37.337+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: Connection Manager version 1.30
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: Connection Manager version 1.30
+1970-01-01T04:56:37.370+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: W: [pulseaudio] sink.c: Default and alternate sample rates are the same.
+1970-01-01T04:56:37.445+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: W: [pulseaudio] source.c: Default and alternate sample rates are the same.
+1970-01-01T04:56:37.495+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Bluetooth daemon 5.45
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Bluetooth daemon 5.45
+1970-01-01T04:56:37.496+00:00 []: [    6.504230] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:37.531+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: int main(int, char**) Running simulator with interval  20 ( 50  Hz)
+1970-01-01T04:56:37.532+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: int main(int, char**) This is normal variant - all features enabled 
+1970-01-01T04:56:37.576+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Unknown key DisablePlugins in main.conf
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Unknown key DisablePlugins in main.conf
+1970-01-01T04:56:37.601+00:00 []: [    6.610866] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:37.607+00:00 [568]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.615+00:00 /sbin/modprobe iptable_filter -q [570]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.617+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Starting SDP server
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Starting SDP server
+1970-01-01T04:56:37.619+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Excluding (cli) wiimote
+1970-01-01T04:56:37.619+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Excluding (cli) autopair
+1970-01-01T04:56:37.619+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Excluding (cli) network
+1970-01-01T04:56:37.619+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Excluding (cli) gap
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Excluding (cli) wiimote
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Excluding (cli) autopair
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Excluding (cli) network
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Excluding (cli) gap
+1970-01-01T04:56:37.628+00:00 []: [    6.631156] bt_imx_fake_audio: channels 1, rate 8000, bclk 256000
+1970-01-01T04:56:37.628+00:00 []: [    6.634301] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:37.629+00:00 [574]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.636+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.636+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: Failed to flush table 'mangle': Invalid argument
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: Failed to flush table 'mangle': Invalid argument
+1970-01-01T04:56:37.640+00:00 /sbin/init [383]: INF bluetoothd [35]: started
+1970-01-01T04:56:37.641+00:00 /sbin/modprobe iptable_mangle -q [579]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.644+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.644+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: Failed to flush table 'mangle': Invalid argument
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: Failed to flush table 'mangle': Invalid argument
+1970-01-01T04:56:37.645+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Bluetooth management interface 1.9 initialized
+1970-01-01T04:56:37.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Bluetooth management interface 1.9 initialized
+1970-01-01T04:56:37.663+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.663+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: Failed to flush table 'mangle': Invalid argument
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: Failed to flush table 'mangle': Invalid argument
+1970-01-01T04:56:37.664+00:00 []: [    6.665957] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:37.664+00:00 []: [    6.673845] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:37.669+00:00 /sbin/modprobe ip_tables -q [591]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.675+00:00 []: [    6.684204] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:37.679+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.679+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: Failed to install iptables rules: Invalid argument
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: Failed to install iptables rules: Invalid argument
+1970-01-01T04:56:37.682+00:00 /sbin/modprobe iptable_nat -q [597]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.694+00:00 []: [    6.702839] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:37.717+00:00 [605]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.719+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.719+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: Failed to install iptables rules: Invalid argument
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: Failed to install iptables rules: Invalid argument
+1970-01-01T04:56:37.720+00:00 [606]: modprobe: can't change directory to '4.1.33-halti-rd-7b5c802f': No such file or directory
+1970-01-01T04:56:37.723+00:00 []: [    6.733694] bt_imx_fake_audio: channels 2, rate 8000, bclk 512000
+1970-01-01T04:56:37.736+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.736+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: Failed to install iptables rules: Invalid argument
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: iptables support missing error 2 (No such file or directory)
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: Failed to install iptables rules: Invalid argument
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.125121 LOG dbus-system-daemon [208]: dbus[208]: [system] Activating service name='fi.w1.wpa_supplicant1' (using servicehelper)
+1970-01-01T04:56:37.000+00:00 /bin/dbus-daemon --nofork --system --nopidfile --address=systemd: [208]: [system] Activating service name='fi.w1.wpa_supplicant1' (using servicehelper)
+1970-01-01T04:56:37.765+00:00 []: [    6.771004] bt_imx_fake_audio: channels 1, rate 8000, bclk 256000
+1970-01-01T04:56:37.771+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: No IPv6 support
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: No IPv6 support
+1970-01-01T04:56:37.773+00:00 /sbin/init [383]: LOG dbus-system-daemon [12]: dbus[12]: [system] Activating service name='fi.w1.wpa_supplicant1' (using servicehelper)
+1970-01-01T04:56:37.000+00:00 /bin/dbus-daemon --nofork --system --nopidfile --address=systemd: [454]: [system] Activating service name='fi.w1.wpa_supplicant1' (using servicehelper)
+1970-01-01T04:56:37.786+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: No IPv6 support
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: No IPv6 support
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: No IPv6 support
+1970-01-01T04:56:37.786+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: No IPv6 support
+1970-01-01T04:56:37.793+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: No IPv6 support
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: No IPv6 support
+1970-01-01T04:56:37.796+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: No IPv6 support
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: No IPv6 support
+1970-01-01T04:56:37.809+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: No IPv6 support
+1970-01-01T04:56:37.809+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: Failed to open RFKILL control device
+1970-01-01T04:56:37.809+00:00 /sbin/init [383]: INF connman [30]: started
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: No IPv6 support
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: Failed to open RFKILL control device
+1970-01-01T04:56:37.810+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: The name net.connman.vpn was not provided by any .service files
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: The name net.connman.vpn was not provided by any .service files
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.175507 INF connman [420]: started
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.175592 INF sshd-keys [0]: starting, type 1
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.176021 DBG sshd-keys [625]: pid 625
+1970-01-01T04:56:37.820+00:00 /sbin/init [379]: INF connman [21]: started
+1970-01-01T04:56:37.830+00:00 []: [    6.840299] bt_imx_fake_audio: channels 1, rate 8000, bclk 256000
+1970-01-01T04:56:37.847+00:00 []: [    6.857278] bt_imx_fake_audio: channels 2, rate 8000, bclk 512000
+1970-01-01T04:56:37.880+00:00 []: [    6.890482] bt_imx_fake_audio: channels 2, rate 8000, bclk 512000
+1970-01-01T04:56:37.897+00:00 []: [    6.898258] fec 2188000.ethernet eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=2188000.ethernet:00, irq=-1)
+1970-01-01T04:56:37.897+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: The name net.connman.vpn was not provided by any .service files
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: The name net.connman.vpn was not provided by any .service files
+1970-01-01T04:56:37.924+00:00 []: [    6.934408] bt_imx_fake_audio: channels 2, rate 8000, bclk 512000
+1970-01-01T04:56:37.930+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: The name net.connman.vpn was not provided by any .service files
+1970-01-01T04:56:37.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: The name net.connman.vpn was not provided by any .service files
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.326249 INF sshd-keys [625]: exit status 0
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.326363 INF sshd-keys [0]: started
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.326449 INF sshd [0]: starting, type 2
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.326931 DBG sshd [627]: pid 627
+1970-01-01T04:56:37.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.327237 INF sshd [627]: started
+1970-01-01T04:56:37.979+00:00 []: [    6.989584] bt_imx_fake_audio: channels 2, rate 8000, bclk 512000
+1970-01-01T04:56:38.000+00:00 /bin/dbus-daemon --nofork --system --nopidfile --address=systemd: [208]: [system] Successfully activated service 'fi.w1.wpa_supplicant1'
+1970-01-01T04:56:38.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.392526 LOG dbus-system-daemon [208]: dbus[208]: [system] Successfully activated service 'fi.w1.wpa_supplicant1'
+1970-01-01T04:56:38.083+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: W: [pulseaudio] module-remap-source.c: No remapping configured, proceeding nonetheless!
+1970-01-01T04:56:38.000+00:00 /usr/sbin/sshd -D [627]: Server listening on 0.0.0.0 port 22.
+1970-01-01T04:56:38.144+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: W: [pulseaudio] source.c: Default and alternate sample rates are the same.
+1970-01-01T04:56:38.145+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: W: [pulseaudio] source.c: Default and alternate sample rates are the same.
+1970-01-01T04:56:38.000+00:00 /bin/dbus-daemon --nofork --system --nopidfile --address=systemd: [454]: [system] Successfully activated service 'fi.w1.wpa_supplicant1'
+1970-01-01T04:56:38.147+00:00 /sbin/init [383]: LOG dbus-system-daemon [12]: dbus[12]: [system] Successfully activated service 'fi.w1.wpa_supplicant1'
+1970-01-01T04:56:38.161+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: void LocalizationPlugin::setLangCode(QString) Translation for  "en_US" loaded
+1970-01-01T04:56:38.000+00:00 /usr/bin/vag-service -t [184]: audio_on_set_callback()
+1970-01-01T04:56:38.000+00:00 /usr/bin/vag-service -t [184]: set audio source: 0
+1970-01-01T04:56:38.000+00:00 /usr/bin/vag-service -t [184]: audio_on_set_callback()
+1970-01-01T04:56:38.000+00:00 /usr/bin/vag-service -t [184]: set volume: 60
+1970-01-01T04:56:38.000+00:00 /usr/bin/vag-service -t [184]: ac_on_get_callback()
+1970-01-01T04:56:38.000+00:00 /usr/bin/vag-service -t [184]: get aux connected: 0
+1970-01-01T04:56:38.308+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Endpoint registered: sender=:1.34 path=/MediaEndpoint/A2DPSource
+1970-01-01T04:56:38.308+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: bluetoothd[35]: Endpoint registered: sender=:1.34 path=/MediaEndpoint/A2DPSink
+1970-01-01T04:56:38.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Endpoint registered: sender=:1.34 path=/MediaEndpoint/A2DPSource
+1970-01-01T04:56:38.000+00:00 /lib/bluetooth/bluetoothd -n -P wiimote,neard,hog,health,gap,alert,time,heartrate,thermometer,cyclingspeed,autopair,network,sap,proximity,sixaxis [560]: Endpoint registered: sender=:1.34 path=/MediaEndpoint/A2DPSink
+1970-01-01T04:56:38.318+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: E: [pulseaudio] backend-ofono.c: Failed to register as a handsfree audio agent with ofono: org.freedesktop.DBus.Error.ServiceUnknown: The name org.ofono was not provided by any .service files
+1970-01-01T04:56:38.382+00:00 []: [    7.270101] imx-ipuv3 2400000.ipu: WARNING: adapt panel end blank lines
+1970-01-01T04:56:38.382+00:00 []: [    7.322506] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:38.382+00:00 []: [    7.324784] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:38.382+00:00 []: [    7.339424] Bluetooth: RFCOMM socket layer initialized
+1970-01-01T04:56:38.382+00:00 []: [    7.339457] Bluetooth: RFCOMM ver 1.11
+1970-01-01T04:56:38.382+00:00 []: [    7.340501] LM-CUSTOM: bt_sock_create() in initial netns: krfcommd(643)
+1970-01-01T04:56:38.382+00:00 []: [    7.342721] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:38.436+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: Skipping disconnect of carrier, network is connecting.
+1970-01-01T04:56:38.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: Skipping disconnect of carrier, network is connecting.
+1970-01-01T04:56:38.000+00:00 /sbin/init linkmotion-root-rw [1]: 000000003.815691 INF cluster [224]: started
+1970-01-01T04:56:38.458+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: connmand[420]: ipconfig state 3 ipconfig method 1
+1970-01-01T04:56:38.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [420]: ipconfig state 3 ipconfig method 1
+1970-01-01T04:56:38.476+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Unable to query physical screen size, defaulting to 100 dpi.
+1970-01-01T04:56:38.476+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: To override, set QT_QPA_EGLFS_PHYSICAL_WIDTH and QT_QPA_EGLFS_PHYSICAL_HEIGHT (in millimeters).
+1970-01-01T04:56:38.477+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Cannot open keyboard input device '/dev/input/keyboard0': No such file or directory
+1970-01-01T04:56:38.477+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Failed to open keyboard device /dev/input/keyboard0
+1970-01-01T04:56:38.499+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: evdevtouch: Cannot open input device /dev/input/touchscreen0 (No such file or directory)
+1970-01-01T04:56:38.768+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: Cannot bind the master socket to the given path.: No such file or directory
+1970-01-01T04:56:38.768+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: Server could not be started.: No such file or directory
+1970-01-01T04:56:38.768+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: void CenterCommunications::startServer() LSAPI could not create the server socket
+1970-01-01T04:56:38.864+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: int main(int, char**) Exported QT_V4L2_RADIO_SIGNAL_THRESHOLD =  56
+1970-01-01T04:56:38.869+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: TestabilityPlugin::Initialize() lib loaded
+1970-01-01T04:56:39.094+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: Cannot bind the master socket to the given path.: No such file or directory
+1970-01-01T04:56:39.094+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: Server could not be started.: No such file or directory
+1970-01-01T04:56:39.094+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: void CenterCommunications::startServer() LSAPI could not create the server socket
+1970-01-01T04:56:40.020+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: QSqlDatabase: QSQLITE driver not loaded
+1970-01-01T04:56:40.020+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: QSqlDatabase: available drivers: 
+1970-01-01T04:56:40.206+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Cannot connect to the server socket.: No such file or directory
+1970-01-01T04:56:40.207+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setSelectedTab(int) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:40.207+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setCurrentColor(QString) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:40.207+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setLangCode(QString) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:40.288+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Not a standard Argo application format, falling back to use executable name.
+1970-01-01T04:56:40.301+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void JsonFile::sendErrorMessage(const QString&) "cannot open file '/altdata/data/org.c4c.ui_center/.config/ui_center/localeSettings.json' for reading"
+1970-01-01T04:56:40.800+00:00 /sbin/init [383]: INF wait-pulseaudio-startup [23]: exit status 0
+1970-01-01T04:56:40.800+00:00 /sbin/init [383]: INF wait-pulseaudio-startup [0]: started
+1970-01-01T04:56:40.800+00:00 /sbin/init [383]: INF raise-alsa-volume [0]: starting, type 1
+1970-01-01T04:56:40.800+00:00 /sbin/init [383]: DBG raise-alsa-volume [64]: pid 64
+1970-01-01T04:56:40.802+00:00 /sbin/init [654]: DBG raise-alsa-volume [0]: running as 'system': 20000
+1970-01-01T04:56:40.850+00:00 /sbin/init [383]: INF raise-alsa-volume [64]: exit status 0
+1970-01-01T04:56:40.850+00:00 /sbin/init [383]: INF raise-alsa-volume [0]: started
+1970-01-01T04:56:40.867+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Module 'MeeGo.Connman' does not contain a module identifier directive - it cannot be protected from external registrations.
+1970-01-01T04:56:40.947+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: "cellular" is not a known technology name: ("wifi", "gps")
+1970-01-01T04:56:40.951+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Can't get: technology is NULL
+1970-01-01T04:56:41.247+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setTemperatureL(double) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.247+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setTemperatureR(double) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.247+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setWindL(int) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.247+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setWindR(int) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.247+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setComfortOptions(int) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.281+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setClusterBrightness(int) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.297+00:00 /sbin/init [383]: INF ui-center [36]: started
+1970-01-01T04:56:41.297+00:00 /sbin/init [383]: INF qt-test-automisation [0]: starting, type 2
+1970-01-01T04:56:41.297+00:00 /sbin/init [383]: DBG qt-test-automisation [68]: pid 68
+1970-01-01T04:56:41.297+00:00 /sbin/init [383]: INF qt-test-automisation [68]: started
+1970-01-01T04:56:41.297+00:00 /sbin/init [383]: INF ofonod [0]: starting, type 2
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: DBG ofonod [69]: pid 69
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: INF ofonod [69]: started
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: INF tracker-extract [0]: starting, type 2
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: DBG tracker-extract [70]: pid 70
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: INF tracker-extract [70]: started
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: INF tracker-miner [0]: starting, type 2
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: DBG tracker-miner [71]: pid 71
+1970-01-01T04:56:41.300+00:00 /sbin/init [383]: INF tracker-miner [71]: started
+1970-01-01T04:56:41.303+00:00 /sbin/init [659]: DBG ofonod [0]: running as 'system': 20000
+1970-01-01T04:56:41.307+00:00 /sbin/init [661]: DBG tracker-miner [0]: running as 'system': 20000
+1970-01-01T04:56:41.309+00:00 /sbin/init [660]: DBG tracker-extract [0]: running as 'system': 20000
+1970-01-01T04:56:41.311+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setMusicVolume(double) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.316+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setPhoneVolume(double) Unable to communicate with cluster over lmlsapi-client.
+1970-01-01T04:56:41.319+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: int main(int, char**) ui_center/main.qml was created after 3443 ms.
+1970-01-01T04:56:41.367+00:00 /usr/sbin/ofonod -n [659]: ofonod[69]: oFono version 1.17
+1970-01-01T04:56:41.000+00:00 /usr/sbin/ofonod -n [659]: oFono version 1.17
+1970-01-01T04:56:41.403+00:00 []: [   10.412721] LM-CUSTOM: bt_sock_create() in netns d8a8f000: ofonod(659)
+1970-01-01T04:56:41.420+00:00 /usr/sbin/ofonod -n [659]: ofonod[69]: Reading of /etc/ofono/phonesim.conf failed: No such file or directory
+1970-01-01T04:56:41.000+00:00 /usr/sbin/ofonod -n [659]: Reading of /etc/ofono/phonesim.conf failed: No such file or directory
+1970-01-01T04:56:41.552+00:00 []: [   10.561651] LM-CUSTOM: bt_sock_create() in netns d8a8f000: bluetoothd(560)
+1970-01-01T04:56:41.553+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: connmand[30]: Failed to change property: /huawei_0 org.ofono.Modem.Powered: org.ofono.Error.Failed Operation failed
+1970-01-01T04:56:41.000+00:00 /usr/sbin/connmand -n --nobacktrace --systemd [518]: Failed to change property: /huawei_0 org.ofono.Modem.Powered: org.ofono.Error.Failed Operation failed
+1970-01-01T04:56:41.639+00:00 /sbin/init [383]: LOG dbus-session-daemon [11]: Activating service name='org.gnome.GConf'
+1970-01-01T04:56:41.677+00:00 /sbin/init [383]: LOG dbus-session-daemon [11]: Successfully activated service 'org.gnome.GConf'
+1970-01-01T04:56:41.781+00:00 /sbin/init [383]: LOG dbus-session-daemon [11]: Activating service name='org.freedesktop.Tracker1'
+1970-01-01T04:56:41.894+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: main(int, char**)::<lambda()> ui_center/main.qml is now visible after 4018 ms.
+1970-01-01T04:56:41.937+00:00 /sbin/init [383]: LOG dbus-session-daemon [11]: Successfully activated service 'org.freedesktop.Tracker1'
+1970-01-01T04:56:41.941+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: int main(int, char**) ui_center/main.qml is now running after 4064 ms. (epit value: 4277872752 )
+1970-01-01T04:56:42.843+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Can't get: technology is NULL
+1970-01-01T04:56:42.844+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Can't get: technology is NULL
+1970-01-01T04:56:42.991+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: connmand[21]: Failed to change property: /huawei_0 org.ofono.Modem.Powered: org.ofono.Error.Failed Operation failed
+1970-01-01T04:56:42.000+00:00 /usr/sbin/connmand -n -P wifi --nobacktrace --systemd [482]: Failed to change property: /huawei_0 org.ofono.Modem.Powered: org.ofono.Error.Failed Operation failed
+1970-01-01T04:56:43.100+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: libpng warning: iCCP: known incorrect sRGB profile
+1970-01-01T04:56:43.231+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: libpng warning: iCCP: known incorrect sRGB profile
+1970-01-01T04:56:43.304+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: libpng warning: iCCP: known incorrect sRGB profile
+1970-01-01T04:56:43.000+00:00 /bin/login --      [172]: pam_unix(login:account): account root has password changed in future
+1970-01-01T04:56:43.000+00:00 /bin/login --      [172]: pam_unix(login:session): session opened for user root by (uid=0)
+1970-01-01T04:56:43.000+00:00 login -- root      [172]: ROOT LOGIN ON ttymxc3
+2017-09-13T11:11:53.427+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: bool V4LRadioControl::connectPA() pulseaudio already connected or connecting
+2017-09-13T11:11:53.434+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: bool V4LRadioControl::connectPA() pulseaudio already connected or connecting
+2017-09-13T11:11:53.480+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setEnjoyType(ClusterCommunications::ENJOY_TYPE) Unable to communicate with cluster over lmlsapi-client.
+2017-09-13T11:11:53.488+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: bool V4LRadioControl::connectPA() pulseaudio already connected or connecting
+2017-09-13T11:11:54.056+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: qml: Radio created. Available: 0 antenna connected:  true state: 0
+2017-09-13T11:11:54.057+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void ClusterCommunications::setRadioFrequency(int) Unable to communicate with cluster over lmlsapi-client.
+2017-09-13T11:11:54.059+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void V4LRadioControl::ioctlRes(int, QByteArray) Found control  Valid RSSI Threshold
+2017-09-13T11:11:54.064+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: E: [alsa-sink-HiFi wm8988-hifi-0] alsa-sink.c: ALSA woke us up to write new data to the device, but there was actually nothing to write.
+2017-09-13T11:11:54.064+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: E: [alsa-sink-HiFi wm8988-hifi-0] alsa-sink.c: Most likely this is a bug in the ALSA driver '(null)'. Please report this issue to the ALSA developers.
+2017-09-13T11:11:54.064+00:00 /usr/bin/pulseaudio -n -F /etc/pulse/container-halti.pa [490]: E: [alsa-sink-HiFi wm8988-hifi-0] alsa-sink.c: We were woken up with POLLOUT set -- however a subsequent snd_pcm_avail() returned 0 or another value < min_avail.
+2017-09-13T11:11:54.095+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void V4LRadioControl::ioctlRes(int, QByteArray) ioctl -1073195492 not handled
+2017-09-13T11:11:54.095+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void V4LRadioControl::ioctlRes(int, QByteArray) Found control  Valid SNR Threshold
+2017-09-13T11:11:54.102+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void V4LRadioControl::ioctlRes(int, QByteArray) ioctl -1073195492 not handled
+2017-09-13T11:11:54.102+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void V4LRadioControl::ioctlRes(int, QByteArray) Found control  Max Tune Errors
+2017-09-13T11:11:54.104+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: void V4LRadioControl::ioctlRes(int, QByteArray) Found control  Count of Harmonics to Reject
+2017-09-13T11:11:54.104+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: bool V4LWorker::doIoctl(int, QByteArray, QString, bool) ioctl "ctrl lookup" Invalid argument
+2017-09-13T11:11:54.122+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Volume= 0
+2017-09-13T11:11:54.129+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Radio mute= 1
+2017-09-13T11:11:54.137+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Radio suspend= 1
+2017-09-13T11:11:54.168+00:00 /usr/apps/org.c4c.ui_center/bin/ui_center [562]: Volume= 60
+2017-09-13T11:11:57.615+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: Cannot bind the master socket to the given path.: No such file or directory
+2017-09-13T11:11:57.949+00:00 /usr/apps/org.c4c.ui_cluster/bin/ui_cluster --simulator [224]: Cannot bind the master socket to the given path.: No such file or directory
+2017-09-13T11:12:11.000+00:00 sshd: root         R [703]: Connection closed by 192.168.135.207
+2017-09-13T11:12:16.000+00:00 sshd: root         R [707]: Accepted password for root from 192.168.135.207 port 33520 ssh2
+2017-09-13T11:12:16.000+00:00 sshd: root         R [707]: pam_unix(sshd:session): session opened for user root by (uid=0)

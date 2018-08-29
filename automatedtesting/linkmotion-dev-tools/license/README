@@ -1,0 +1,7 @@
+Usage examples
+
+1) Add placeholder license headers:
+ lm-autolicense -a --src . --template ui
+
+2) Replace placeholders with valid data from git:
+ lm-autolicense -u --src . --template ui

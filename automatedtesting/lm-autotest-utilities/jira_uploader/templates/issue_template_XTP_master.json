@@ -1,0 +1,15 @@
+{
+	"fields": {
+		"project": {
+			"key": "XTP"
+		},
+		"summary": "Master nightly for image $image_url",
+		"description": "$image_url",
+		"issuetype": {
+			"name": "Test Execution"
+		},
+		"assignee": {
+			"name":"aleksi.hiltunen@link-motion.com"
+		}
+	}
+}

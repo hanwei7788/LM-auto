@@ -1,0 +1,32 @@
+#!/bin/bash
+
+pushd /home/system/setup
+echo -p "Fix sudo rights.."
+sudo ./fix-sudo
+echo "..done!"
+
+echo -p "Fix path.."
+./fix-paths
+echo "..done!"
+
+echo -p "Setup testability.."
+./fix-testability
+echo "..done!"
+
+echo -p "Executing fix-net script.."
+sudo ./fix-net
+echo "..done!"
+echo
+echo " https://wiki.nomovok.info/C4C/index.php/Main_Page#Security_Notice"
+echo
+echo "Install development libraries.."
+sudo zypper ref
+
+PACKAGES=`cat install_packages`
+for PACKAGE in ${PACKAGES}; do
+sudo zypper --non-interactive --no-gpg-checks in ${PACKAGE}
+done
+echo "..done!"
+
+popd
+

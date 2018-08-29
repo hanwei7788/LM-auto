@@ -1,0 +1,64 @@
+[LM-3497] 
+Tool for analyzing automated test results changes 
+
+Author: Niko Vähäsarja <niko.vahasarja@nomovok.com>
+Modified by: Pauli Oikkonen <pauli.oikkonen@link-motion.com>
+================================================================================
+
+Tool can be used for comparing two similiar test runs for differences.
+
+By default, output is JIRA markup, ready for copy pasting or automatic
+uploading as comment for test run results. Plaintext mode available in commit
+82bb697c2c3403b456157393aa8b578c54236629, by setting JIRA=false.
+
+There is also a script (create_comment.py) that works as a wrapper around
+compare_test_results.rb, creating a temporary directory for the comparison
+files, and uploading the files and the comment to a JIRA issue. Using it will
+require you to configure jira_auth.json: just copy jira_auth.json.example and
+write your credentials there.
+
+Script detects following changes:
+* DELETED:
+    - Test, which was present in the earlier test run, is not present in the
+      new test run.
+* FIXED:
+    - Test, which had not PASS status in earlier test run, has now PASS in the
+      new test run.
+* CHANGED:
+    - Test, which had not PASS status in earlier test run, and has not PASS
+      status in the new test run, has different comment field contents.
+* REGRESSED:
+    - Test, which had PASS status in earlier test run, does not have PASS in
+      the new test run.
+* ADDED:
+    - Test, which was not present in the earlier test run, is now present in
+      the new test run.
+
+================================================================================
+REQUIREMENTS:
+
+The create_comment script uses requests package, which does not ship by default
+with Python. How to install requests:
+
+$ sudo pip3 install requests
+
+================================================================================
+USAGE:
+
+$ ./compare_test_results.rb <OLD_RUN.json> <NEW_RUN.json> <diff file directory>
+
+example:
+
+$ ./compare_test_results.rb run_1.json run_2.json ./diffs/ > comparison.txt
+
+* compares run_1.json to run_2.json change, and writes the report in comparison.txt.
+  For any tests where results differ, writes a file with the name of the test
+  ID to ./diffs/ (for example ./diffs/LM-1234.txt) to add into the JIRA test
+  execution as attachment.
+
+Using create_comment.py:
+
+$ ./create_comment.py run_1.json run_2.json XTP-3055
+
+* does comparison on run_1.json and run_2.json, uploads the diff files to JIRA
+  as attachments to XTP-3055, and submits the report as a comment to the issue

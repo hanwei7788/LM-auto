@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+begin
+  require 'notify'
+rescue LoadError
+end
+
+ARGV << '-h' if ARGV.empty?
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner << " [autoos image] [ivios image] [seccont image]"
+  opts.on("-d", "--device DEVICE", "Write images to DEVICE") do |v|
+    options[:device] = v
+  end
+  opts.on_tail("-h", "--help", "Prints this help") do
+    puts opts
+    puts %{
+    Write images to selected device using ./write_rootfs.sh (which still
+    asks for permission before actually writing). Image type is guessed
+    from filename, so no need to keep a specific order.
+    }
+    exit
+  end
+end.parse!
+
+if not options[:device]
+  abort "Device required, try \"#{$0} -h\" for more info"
+end
+
+if ARGV.size == 0
+  abort "Need at least one image filename, try \"#{$0} -h\" for more info"
+end
+
+ARGV.each do |fn|
+  d = nil
+  case fn
+  when /autoos/
+    d = 2
+  when /ivios/
+    d = 4
+  when /seccont/
+    d = 3
+  else
+    puts "Did not recongnize #{fn} image type from filename, skipping"
+    next
+  end
+  system("sudo ./write_rootfs.sh -p #{options[:device]}#{d} -r #{fn}")
+end
+
+if defined?(Notify)
+  Notify.notify "Image writer", "done"
+end

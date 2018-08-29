@@ -1,0 +1,11 @@
+
+This creates and starts a lxc container from a .ova sdk image.
+
+1. Download LM SDK .ova file.
+2. Run this script with the .ova as parameter: 
+   sudo ./lm-lxc-sdk.sh ~/Downloads/vm-0.25-swa_system-rnd-20170404-1313.ova
+3. Done.
+
+Script will ask for confirmation before proceeding. Old container
+will be deleted, so don't leave any valuables inside it.
+

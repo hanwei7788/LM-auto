@@ -1,0 +1,9 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: can-simulator-ng
+Source: http://link-motion.com
+
+Files: *
+Copyright: 2018 Link Motion Ltd.
+
+License: Proprietary
+

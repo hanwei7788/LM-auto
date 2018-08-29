@@ -1,0 +1,16 @@
+[general]
+image_type = nightly
+
+[last_update]
+release = 0
+weekly = 0
+nightly = 0
+
+[latest_image]
+release = 
+weekly = 
+nightly = 
+
+[tests]
+pids = 
+

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Query the window size with an xterm control sequence and set the terminal
+# size accordingly (ala the xterm resize command). Run it at login (or if you
+# resize the window) and minicom/nano usage should work OK.
+
+resize() {
+	OLDIFS=$IFS
+	OLDSTTY=$(stty -g)
+	IFS='[;R'
+	stty raw min 0 time 5
+	printf '\0337\033[r\033[999;999H\033[6n\0338'
+	read -r _ rows cols _
+	stty $OLDSTTY cols "$cols" rows "$rows"
+	IFS=$OLDIFS
+}
+
+resize

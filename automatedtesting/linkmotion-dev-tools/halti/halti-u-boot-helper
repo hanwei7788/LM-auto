@@ -1,0 +1,334 @@
+#!/bin/bash
+############################################
+# This is a helper step by step guide script
+# for you to flash the vanilla hw with the first
+# u-boot.
+#
+# Lets hope that this helps you.
+#
+# Author(s): Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+#
+# (C) 2017 Link Motion Oy
+# All Rights Reserved
+###########################################
+RPMNAME=u-boot-imx6-halti-rnd-2016.11.rc1.lm73-2.lm.2.1.armv7tnhl.rpm
+RPMURI=https://copernicus-repos.integration.nomovok.info/lm-common:/autobuild-common-imx6/armv7tnhl
+UBOOTNAME=u-boot-halti-rnd.imx
+
+set -e
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered OFF."
+echo " - serial cable is prepared and connected to the HW."
+echo
+echo "Please make sure that you have connected to the serial port of the HW!"
+echo "Make sure that the hw is powered off!"
+echo
+echo " Set DIP switch to OTG position."
+echo "   https://confluence.link-motion.com/display/HH/HW+Setup%3A+DIP+Switch"
+echo
+echo "press <enter> to continue"
+read
+echo
+
+sudo apt install curl rpm2cpio minicom libusb-1.0 git
+
+clear
+echo
+echo "Get latest password from: https://confluence.link-motion.com/display/SWA/Security+Notice"
+mkdir -p tmp-uboot
+pushd tmp-uboot
+  curl -u linkmotion -k -n ${RPMURI}/${RPMNAME} -O
+  rpm2cpio u-boot-imx6-*rpm | cpio -idmv
+  cp usr/share/u-boot-imx6/*.imx ..
+  git clone https://github.com/boundarydevices/imx_usb_loader.git
+  pushd imx_usb_loader
+    make
+    sudo make install
+  popd
+popd
+rm -rf tmp-uboot
+ls -la *.imx
+echo
+echo "You have now the u-boot imx file downloaded."
+echo
+echo "Press <enter> to continue."
+read
+clear
+echo "lets copy the imx file to the first partition of the SD card."
+echo
+echo "Connect SD card TO YOUR PC!"
+echo
+echo "press <enter> to copy imx to sd card."
+echo
+read
+
+  DEVICE_NAME=`mount|grep vfat|grep \/media\/${USER}|grep -o "\/dev\/sd[a-z][0-9]"`
+  MOUNT_PATH=`mount|grep vfat|grep ${DEVICE_NAME}|grep -o "\/media\/${USER}/[A-Z0-9a-z-]*"`
+  DEVICE_INFO=`udevadm info --query=all -n ${DEVICE_NAME}`
+  IS_MMC=`echo ${DEVICE_INFO}|grep -i mmc`
+#  if [[ -z ${IS_MMC} ]]; then
+    echo "MMC was detected to be the device ${DEVICE_NAME}."
+    echo "Is this correct?"
+    echo "press <enter> to continue."
+    echo "press <ctrl+c> to cancel."
+    read
+    cp ${UBOOTNAME} ${MOUNT_PATH}
+    sync
+    umount ${MOUNT_PATH}
+#  fi
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered OFF."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your PC/WORKSTATION."
+echo
+echo "The SD Card has been written and umounted."
+echo "Remove the SD Card from your PC and connect it to YOUR HW!"
+echo
+echo "press <enter> when you have connected SD CARD TO HW!"
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered OFF."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo
+echo "Run following command in separate terminal window:"
+echo "  sudo minicom -w -b 115200 -o -D /dev/ttyUSB0"
+echo "Make sure that HARDWARE CONTROL FLOW is disabled."
+echo
+echo "press <enter> when minicom is ready."
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered OFF."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo
+echo "Connect mini-usb cable to the HW and between your PC."
+echo "That will be used to transferred the u-boot image to the hw."
+echo
+echo "press <enter> to continue"
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered OFF."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo
+echo "Please POWER ON the hardware now!"
+echo
+echo "press <enter> to continue once you have powered on the hw."
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo
+echo "Check that you have following in dmesg."
+echo
+echo "This line for the serial port:"
+echo [ 3328.900742] pl2303 3-2:1.0: pl2303 converter detected
+echo [ 3328.931587] usb 3-2: pl2303 converter now attached to ttyUSB0
+echo
+echo "This line for the usb otg for flashing the u-boot."
+echo [ 4582.907029] hid-generic 0003:15A2:0054.0002: hiddev0,hidraw1: USB HID v1.10 Device [Freescale SemiConductor Inc  SE Blank ARIK] on usb-0000:03:00.0-4.1/input0
+echo
+echo "press <enter> to continue"
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo
+echo "Once you continue from this step monitor the minicom as it should boot."
+echo
+echo "press <enter> to continue"
+read
+clear
+sudo imx_usb ${UBOOTNAME}
+echo
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo " - HW has been booted via usb cable to u-boot."
+echo
+echo "Now you device is running the u-boot."
+echo "See the minicom window now! You should have:"
+echo "--8<---"
+echo "Halti R&D >"
+echo "--8<---"
+echo
+echo "press <enter> to continue"
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo " - HW has been booted via usb cable to u-boot."
+echo " - u-boot is NOT installed"
+echo
+echo "NEXT step is to actually flash the u-boot on the hw."
+echo "as now you have just booted the hw with the u-boot."
+echo
+echo "You can read more at"
+echo "  https://confluence.link-motion.com/display/HH/Halti%3A+SPI+NOR"
+echo
+echo "press <enter> to continue"
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo " - HW has been booted via usb cable to u-boot."
+echo " - u-boot is NOT installed"
+echo
+echo "Then you execute following commands via minicom connection:"
+echo "---8<---"
+echo load mmc 0:1 0x10008000 ${UBOOTNAME}
+echo sf probe
+echo sf erase 0 0x100000
+echo sf write 0x10008000 0x400 \$\{filesize\}
+echo "---8<---"
+echo
+echo "press <enter> once you have executed the commands above."
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo " - HW has been booted via usb cable to u-boot."
+echo " - u-boot is NOW INSTALLED ON THE HW!"
+echo
+echo "You should see following in minicom:"
+echo "--8<--"                                                                                                                  
+echo "Halti R&D > load mmc 0:1 0x10008000 ${UBOOTNAME}"
+echo "reading ${UBOOTNAME}"
+echo "461824 bytes read in 39 ms (11.3 MiB/s)"
+echo "Halti R&D > sf probe"
+echo "SF: Detected M25P16 with page size 256 Bytes, erase size 64 KiB, total 2 MiB"
+echo "Halti R&D > sf erase 0 0x100000"
+echo "SF: 1048576 bytes @ 0x0 Erased: OK"
+echo "Halti R&D > sf write 0x10008000 0x400"
+echo "device 0 offset 0x400, size 0x1ffc00"
+echo "SF: 2096128 bytes @ 0x400 Written: OK"
+echo "Halti R&D > "
+echo "--8<--"
+echo
+echo "press <enter> to continue"
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo " - HW has been booted via usb cable to u-boot."
+echo " - u-boot is NOW INSTALLED ON THE HW!"
+echo " - DIP switch is still in the boot-otg state."
+echo
+echo "1) Power off the hardware"
+echo "2) Now toggle the DIP switch back to regular boot."
+echo
+echo " FROM PINK CABLE SIDE TO GRAY CABLE SIDE."
+echo
+echo " Set DIP switch to REGULAR position."
+echo "   https://confluence.link-motion.com/display/HH/HW+Setup%3A+DIP+Switch"
+echo
+echo "press <enter> once you have restored the dip switch."
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered OFF."
+echo " - imx file in your SD Card."
+echo " - SD Card is attached to your HW."
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo " - HW has been booted via usb cable to u-boot."
+echo " - u-boot is NOW INSTALLED ON THE HW!"
+echo " - DIP switch is now in regular boot mode"
+echo
+echo "1) Remove SD Card"
+echo "2) Power on the hardware."
+echo
+echo "press <enter> once you have power cycled the hw."
+read
+clear
+echo
+echo "NOW YOU SHOULD HAVE:"
+echo " - HW is powered ON."
+echo " - imx file in your SD Card."
+echo " - SD Card is NO LONGER CONNECTED TO ANYTHING"
+echo " - minicom is opened in another window"
+echo " - you have connected mini-usb cable to the otg port of the hw."
+echo " - both usb-serial adapter and the usb-freescale have been detected by the PC/Workstation"
+echo " - u-boot is NOW INSTALLED ON THE HW!"
+echo " - DIP switch is now in regular boot mode"
+echo " - HW has been booted via internal memory"
+echo
+echo "You should now see in minicom the booted u-boot!"
+echo "Execute following in the minicom connection to uboot:"
+echo "  env default -a"
+echo "  env save"
+echo
+echo "press <enter> once you have executed those commands."
+read
+clear
+echo
+echo "You should see following in the minicom:"
+echo "--8<--"
+echo "Halti R&D > env default -a"
+echo "## Resetting to default environment"
+echo "Halti R&D > env save"
+echo "Saving Environment to SPI Flash..."
+echo "SF: Detected M25P16 with page size 256 Bytes, erase size 64 KiB, total 2 MiB"
+echo "Erasing SPI flash...Writing to SPI flash...done"
+echo "Halti R&D >"
+echo "--8<--"
+echo
+echo "You have successfully now installed the u-boot."
+echo "bye, bye."
+

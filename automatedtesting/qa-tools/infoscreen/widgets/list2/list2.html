@@ -1,0 +1,20 @@
+<h1 class="title" data-bind="title"></h1>
+
+<table style="width:100%">
+  <tr>
+    <th class="label">SUT</th>
+    <th class="power">POWER</th>
+    <th class="ping">PING</th>
+    <th class="status">STATUS</th>
+    <th class="progress">PROGRESS</th>
+  </tr>
+  <tr  data-foreach-item="items">
+    <td class="label" data-bind="item.label"></td>
+    <td class="power" data-bind-style="item.powercolor" data-bind="item.power"></td>
+    <td class="ping" data-bind-style="item.pingcolor" data-bind="item.ping"></td>
+    <td class="status" data-bind-style="item.statuscolor" data-bind="item.status"></td>
+    <td class="progress" data-bind-style="item.progresscolor" data-bind="item.progress"></td>
+  </tr>
+</table>
+<p class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>

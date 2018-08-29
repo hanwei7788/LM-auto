@@ -1,0 +1,19 @@
+.widget-text {
+  background-color: #006600;
+
+  .title {
+    color: #ccffff;
+  }
+
+  .more-info {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .updated-at {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &.large h3 {
+    font-size: 65px;
+  }
+}

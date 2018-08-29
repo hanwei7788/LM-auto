@@ -1,0 +1,50 @@
+#!/bin/bash
+###########################################
+#
+# This is a helper script for a vanilla hw.
+#
+# Author(s): Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+#
+# (C) 2017 Link Motion Oy
+# All Rights Reserved
+###########################################
+IS_NETRC=`cat ${HOME}/.netrc|grep dav.nomovok.info`
+if [[ -z ${IS_NETRC} ]]; then
+  echo
+  echo "Check that you have prepared ${HOME}/.netrc."
+  echo
+  echo "Should have following format:"
+  echo "--8<--"
+  echo "machine dav.nomovok.info"
+  echo "login linkmotion"
+  echo "password [password here]"
+  echo "--8<--"
+  echo
+  echo "The current password is here:"
+  echo "https://confluence.link-motion.com/display/SWA/Security+Notice"
+  echo
+  exit 1
+fi
+
+set -e
+
+mkdir -p tmp-halti-recoveryos
+
+RECOVERYOS_IMG=""
+COMBINED_FILE=""
+pushd tmp-halti-recoveryos &> /dev/null
+   curl -f -s -O -n https://dav.nomovok.info/argo//images/rnd/imx6-0.26-swa_recovery-recovery/latest
+   COMBINED_IMG=`cat latest|grep combined|grep -v sha`
+   curl -f -s -O -n ${COMBINED_IMG}
+   COMBINED_FILE=`ls *.combined`
+   RECOVERYOS_IMG=${PWD}/${COMBINED_FILE}
+popd &> /dev/null
+
+if [[ -z ${RECOVERYOS_IMG} ]]; then
+  echo "could not get recoveryos img."
+  exit 1
+fi
+
+mv ${RECOVERYOS_IMG} .
+rm -rf tmp-halti-recoveryos
+echo ${COMBINED_FILE}

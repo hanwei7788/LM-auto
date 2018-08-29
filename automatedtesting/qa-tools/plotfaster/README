@@ -1,0 +1,64 @@
+Plotfaster - Tool for automatic system performance monitoring
+Author: Pauli Oikkonen, 2016-17
+
+Requirements
+============
+
+To use plotfaster, you need a way to connect to the board over SSH (ie. the
+board must be equipped with a network connection and an SSH daemon), OpenSSH,
+sshpass, and python 3 on the host to run the scripts. For drawing graphs, the
+script uses matplotlib, which you have to install separately in Python's own
+package manager (pip3 install matplotlib).
+
+Usage
+=====
+
+For normal testing, you should just run execute_test.py, which will
+automatically run a workload if specified, report at specified interval, and
+run exporter to draw graphs from the collected data. Subcomponents can be run
+without execute_test too, if needed. If you're running Plotfaster as a
+background task, you should use end_test.py to end the test in a controlled
+fashion. If you run it in an interactive terminal, you can stop the test with
+Ctrl+C.
+
+Subcomponents
+=============
+
+Plotfaster at its core consists of the reporter tool, which itself just samples
+data from the board at given interval, and outputs the data into a JSON file.
+The other major component is the exporter, which will read the JSON data,
+extract certain data (for example memory consumption or processor temperature
+over time) as determined by its config file, and plot graphs from the data with
+gnuplot. Execute_test will work as glue logic between those, automatically
+collecting data to a separate directory for each test run and running exporter
+for the sampled data, and also running a stress script (for example to run all
+CPU cores at 100% stress) if required.
+
+Configuration and options
+=========================
+
+The only mandatory argument that execute_test needs is hostname of the SUT.
+By default, it will try to connect as root with password skytree, but they can
+be overridden with command line parameters (run execute_test.py --help for
+details). You can also determine how many data points are collected, collection
+interval, number of workload processes run if any (see workloads/stress.sh for
+details) and which workload will be run.
+
+Exporter will read a config file, by default config.json (config.json.example
+supplied, just copy that as config.json), which determines which variables
+belong to which graph files (for example, to plot all system memory statistics
+in the same graph), and details of the config file can be found from comments
+in the file itself.
+
+Ending test
+===========
+
+You can end the test by either pressing ^C on the terminal where plotfaster is
+being run, or if it doesn't run in an interactive terminal, then using
+end_test.py.
+
+Information
+===========
+
+E-mail:
+    pauli.oikkonen@link-motion.com
