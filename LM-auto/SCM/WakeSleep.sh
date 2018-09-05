@@ -1,3 +1,4 @@
+#!/system/bin/sh
 #休眠、唤醒设备500次，是否工作正常
 
 comment(){
@@ -7,7 +8,7 @@ fi
 echo "`date +%m-%d" "%H":"%M":"%S`,$1,$2" >>$testresult/comments.csv
 }
 
-#!/system/bin/sh
+
 ##############Global variables#################
 screen="ON/OFF"  (ON:wakeup state; OFF:sleep state) 
 times=0  操作次数
