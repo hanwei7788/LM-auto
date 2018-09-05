@@ -9,7 +9,7 @@ usage(){
     echo "This scripts will set up enviorment for Build/Deploy SilverStone project. "
     echo 'All scripts are followed with steps on https://confluence.link-motion.com/pages/viewpage.action?pageId=6032297'
     echo "It will try to install curl, repo, docker on your machine with current account."
-    echo "It will try ton repo init with your local account"
+    echo "It will try to run repo init with your local account"
 
 }
 
