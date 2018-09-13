@@ -1,0 +1,128 @@
+
+ *** LinkMotion SDK Docker Container ***
+
+This is a Docker container that can be used
+to build arm rpm packages for Link Motion HW.
+Doesn't use git - just the source directories are
+enough. Requires OBS account.
+
+
+** INSTALLING **
+
+First, install docker and allow yourself to run it without sudo:
+
+  sudo apt-get install docker.io
+  sudo gpasswd -a ${USER} docker
+  sudo service docker restart
+  newgrp docker
+
+*** Create and configure the container ***
+
+For hardware / arm target:
+ ./docker-create-container.sh lm-sdk
+
+For virtual machine / i586 target:
+ ./docker-create-container.sh lm-sdk ~/src vm
+
+Where '~/src' is the directory where your source code is located.
+
+PLEASE NOTE: the scripts will store the latest container name and it will be used in other scripts by default. So if you built an ARM container it will be the default or if you created i586 container it will be the default one. So make sure that the architecture of the container matches your target hw or vm. Otherwise you will see that the i586 packages wont work on ARM or other way around.
+
+** AFTER INSTALLING **
+
+Now the container is running and ready to be used.
+
+If you want to remove all docker containers:
+
+  ./docker-remove-all.sh
+
+
+** USING **
+
+First make sure you can access the Link Motion device without root 
+password. Use linkmotion-dev-tools/hardware-setup/setup_new_device.sh
+to do this easily.
+
+* Command line usage *
+
+Next you'll need the package name to build and ip address of
+your Link Motion device. Run the docker-install.sh command, for example:
+
+ ./docker-install-rpm-container.sh ui_center 192.168.8.107
+
+Wait for a while. After the while is finished, the package should
+be installed on the device. The arm packages can be found in 
+<source path>/build-<package name>-imx6.
+
+If you need to blacklist a package installation, you can use:
+ ./docker-install-blacklist.sh [package_name] [blacklist_regexp_for_grep]
+
+Example: blacklists packages which contains -b- or ui_center-cfg or debug for the ui_center source.
+ ./docker-install-blacklist.sh ui_center '\-b\-\|ui_center-cfg\|debug'
+
+In the case that you would like to have just the package built:
+ ./docker-build.sh [package_name] [container_name] [source_directory] [output_directory]
+
+If you need to debug your project inside the buildroot you can use:
+ ./docker-shell.sh [container_name]
+
+Then you can follow the on-screen guide to get inside build directory.
+
+
+* Qt Creator integration *
+
+- Open Projects "tab" in left pane.
+- Choose Manage Kits
+- Clone some working destkop kit, name it Docker
+- Return to projects view and choose Docker kit
+- Remove any Build Steps with X button
+- Add new custom process step:
+ - Command: <path to>/docker-install-rpm-container.sh
+ - Arguments: <project name> <ip to your device> 
+- Hit ctrl-b and watch the project being built and installed.
+
+
+
+* Support for building packages depending on eachother *
+
+If you have changes to several packages that are not 
+committed to OBS yet, you can do the following:
+
+- mkdir <source path>/lm-sdk-preferred-pkgs
+- Build all packages separately in dependency order and 
+  copy resulting RPMs to directory above.
+- When finished, it's a good idea to clear the directory.
+
+
+
+* When Link Motion or skytree version is updated *
+
+TODO: have the version in one place. Feel free to fix this.
+
+- Change the project fallback and reponame in oscbuild.sh: 
+PROJECT_FALLBACK=lm-ivios:0.23
+REPONAME=lm-0.23
+- Change the trusted_prj in _oscrc:
+trusted_prj=lm-ivios-common:0.23:imx6
+- Change the project and repo name in ../scripts/common-functions.sh
+  PROJECT="lm-ivios-common:0.23:imx6"
+  REPONAME="lm-0.23"
+- Rebuild the docker image
+- If it works, commit the changes back to this repository
+
+
+* Problems ? *
+
+If you run into problems, please solve them and update
+this SDK if needed.
+You can get inside the container for maintenance with:
+
+./docker-shell.sh
+
+
+ - Ville Ranki <ville.ranki@nomovok.com>
+
+* CHANGES *
+ 2017-02-22: Updated README: Ville Ranki <ville.ranki@link-motion.com>
+ 2016-06-02: Updated README: Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+

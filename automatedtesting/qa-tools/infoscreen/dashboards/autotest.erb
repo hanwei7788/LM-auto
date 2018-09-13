@@ -1,0 +1,28 @@
+<script type='text/javascript'>
+ $(function() {
+   Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":3,"size_y":1},{"col":4,"row":1,"size_x":4,"size_y":1},{"col":1,"row":2,"size_x":7,"size_y":3},{"col":8,"row":1,"size_x":7,"size_y":4}]')
+   Dashing.widget_base_dimensions = [80, 180]
+   Dashing.numColumns = 14
+   Dashing.numRows = 4
+ });
+ </script>
+
+<% content_for :title do %>1080p dashboard<% end %>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="1">
+      <div data-view="Clock"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="4" data-sizey="1">
+      <div data-id="welcome" data-view="Text" data-title="" data-moreinfo="ATP1-3 Pallas Stability | ATP4-6 Indy Stability ATP7-9 Argo / Pallas / Indy Automated testing ATP10-12 Pallas / Argo / Indy Smoke Testing ATP13 Audio Testing | ATP14-16 Argo Stability ATP17 Long stability"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="7" data-sizey="3">
+      <div data-id="status" data-view="List2" data-unordered="true"></div>
+    </li>
+
+    <li data-row="1" data-col="3" data-sizex="7" data-sizey="4">
+      <div data-id="results" data-view="List" data-unordered="true" data-title="Last finished" data-moreinfo="# last finished tests with results and timestamps"></div>
+    </li>
+  </ul>
+</div>

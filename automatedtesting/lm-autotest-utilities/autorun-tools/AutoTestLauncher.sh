@@ -1,0 +1,13 @@
+#!/bin/bash
+# Launch master script with correct parameters v1
+
+now=$(date +"%Y%m%d%H%M%S")
+printf "Launch config $1, test run ID $now\n"
+cd ~/automatedtesting/c4c-functional-tests
+mkdir -p "TestReports_$1/$now"
+cron_log="./TestReports_$1/$now/$1-$now-cron.log"
+uploader_log="./$1-$now-uploader.log"
+bash ~/automatedtesting/lm-autotest-utilities/autorun-tools/Full_Main_CheckFlashTest.sh $1 $now > "$cron_log" 2>&1
+bash ~/automatedtesting/lm-autotest-utilities/autorun-tools/Log_Uploader_Cleaner.sh $1 $now > "$uploader_log" 2>&1
+
+

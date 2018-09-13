@@ -1,0 +1,28 @@
+#Config file. All the data in array has to be in same order as the data has to match when it is indexed.
+#New devices can actually be added to the system as easily as it seems.
+#IP is the IP of device, name is the name that you want to see on the screen and label is the name that is needed to get data from filesystem.
+$sut = {'192.168.1.57'=>{:ip=>'192.168.1.57', :label=>"ATP1(Pallas | PreDVT)", :name=>"ATP1$", :switch=>"pallas"},
+        '192.168.1.58'=>{:ip=>'192.168.1.58', :label=>"ATP2(Pallas | PreDVT)", :name=>"ATP2", :switch=>"pallas"},
+        '192.168.1.59'=>{:ip=>'192.168.1.59', :label=>"ATP3(Pallas | PreDVT)", :name=>"ATP3", :switch=>"pallas"},
+        '192.168.1.54'=>{:ip=>'192.168.1.54', :label=>"ATP4(Indy | DVT)", :name=>"ATP4", :switch=>"indy"},
+        '192.168.1.55'=>{:ip=>'192.168.1.55', :label=>"ATP5(Indy | DVT)", :name=>"ATP5", :switch=>"indy"},
+        '192.168.1.56'=>{:ip=>'192.168.1.56', :label=>"ATP6(Indy | DVT)", :name=>"ATP6", :switch=>"indy"},
+        '192.168.1.61'=>{:ip=>'192.168.1.61', :label=>"ATP7(Argo | DVT)", :name=>"ATP7", :switch=>"atp7"},
+        '192.168.1.62'=>{:ip=>'192.168.1.62', :label=>"ATP8(Pallas | DVT)", :name=>"ATP8", :switch=>"atp8"},
+        '192.168.1.63'=>{:ip=>'192.168.1.63', :label=>"ATP9(Indy | DVT)", :name=>"ATP9", :switch=>"atp9"},
+        '192.168.1.66'=>{:ip=>'192.168.1.66', :label=>"ATP10(Pallas | DVT)", :name=>"ATP10", :switch=>"atp10"},
+        '192.168.1.65'=>{:ip=>'192.168.1.65', :label=>"ATP11(Argo | DVT)", :name=>"ATP11", :switch=>"atp11"},
+        '192.168.1.64'=>{:ip=>'192.168.1.64', :label=>"ATP12(Indy | DVT)", :name=>"ATP12", :switch=>"atp12"},
+        '192.168.1.60'=>{:ip=>'192.168.1.60', :label=>"ATP13(Audio | DVT)", :name=>"ATP13", :switch=>"atp13"},
+        '192.168.1.51'=>{:ip=>'192.168.1.51', :label=>"ATP14(Argo | DVT)", :name=>"ATP14", :switch=>"argo"},
+        '192.168.1.52'=>{:ip=>'192.168.1.52', :label=>"ATP15(Argo | DVT)", :name=>"ATP15", :switch=>"argo"},
+        '192.168.1.53'=>{:ip=>'192.168.1.53', :label=>"ATP16(Argo | DVT)", :name=>"ATP16", :switch=>"argo"},
+        '192.168.1.67'=>{:ip=>'192.168.1.67', :label=>"ATP17(DVT)", :name=>"ATP17", :switch=>"atp17"},
+        '192.168.0.???'=>{:ip=>'192.168.0.???', :label=>"FOS(PreDVT)", :name=>"FOS", :switch=>"FOS"}   }
+
+$stabilitypath = "~/qa-tools/plotfaster/reports"
+$autotestpath = "~/automatedtesting/argo_functional_tests/TestReports_"
+$autotestprocess = "'[A]utoTestLauncher'"
+$autotestflashingprogress = "'[R]ecoveryUpdate'"
+$stabilityprocess = "'[e]xecute_test'"
+$manualprocess = "'[A]TP'"

@@ -1,0 +1,20 @@
+{
+	"fields": {
+		"project": {
+			"key": "INDY"
+		},
+		"summary": "Automated stability test execution - $software_type",
+		"description": "$image_url - $weekday $date",
+		"environment": "$sut_name",
+		"issuetype": {
+			"name": "Test Execution"
+		},
+		"assignee": {
+			"name":"verneri.ahola@link-motion.com"
+		},
+		"fixVersions": [{"name":"$version"}],
+		"versions": [{"name":"$version"}],
+		"customfield_10705":["$hardware"],
+		"customfield_10707":["$testplan"]
+	}
+}

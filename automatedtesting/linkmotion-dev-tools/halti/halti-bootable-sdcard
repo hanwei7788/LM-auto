@@ -1,0 +1,153 @@
+#!/bin/bash
+###########################################
+#
+# This is a helper script for a vanilla hw.
+#
+# Author(s): Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+#
+# (C) 2017 Link Motion Oy
+# All Rights Reserved
+###########################################
+
+IS_NETRC=`cat ${HOME}/.netrc|grep dav.nomovok.info`
+if [[ -z ${IS_NETRC} ]]; then
+  echo
+  echo "Check that you have prepared ${HOME}/.netrc."
+  echo
+  echo "Should have following format:"
+  echo "--8<--"
+  echo "machine dav.nomovok.info"
+  echo "login linkmotion"
+  echo "password [password here]"
+  echo "--8<--"
+  echo
+  echo "The current password is here:"
+  echo "https://confluence.link-motion.com/display/SWA/Security+Notice"
+  echo
+  exit 1
+fi
+
+DEVICE=$1
+VERSION=0.27
+
+if [[ -z ${DEVICE} ]]; then
+  echo "$0 [device]"
+  echo
+  echo "EXAMPLE:"
+  echo "  $0 /dev/mmcblk0"
+  exit 1
+fi
+
+set -e
+
+TMPFOLDER=tmp-halti-bootable
+rm -rf tmp-halti-bootable
+
+# make sure that the devices are umounted.
+set +e
+DEVICES=`ls ${DEVICE}*`
+for DEV in ${DEVICES}; do
+  sudo umount ${DEV}
+done
+set -e
+
+# then download the combiner script.
+mkdir -p ${TMPFOLDER}
+pushd ${TMPFOLDER}
+   curl -s -f -O -n https://dav.nomovok.info/argo/images/rnd/imx6-${VERSION}-swa_system-rnd/latest
+   COMBINER_IMG=`cat latest|grep combiner\.sh`
+   curl -s -f -O -n ${COMBINER_IMG}
+   COMBINER_NAME=`ls *combiner.sh`
+   chmod +x ${COMBINER_NAME}
+   echo
+   echo "Downloaded combiner image: ${COMBINER_NAME}"
+   echo
+   echo "Write image to ${DEVICE} press <enter> to cancel press <ctrl+c>"
+   echo
+   read
+   # enable .netrc support for combiner script
+   sed -i "s/curl \\$/curl -n \\$/g" ${COMBINER_NAME}
+   # write the image
+   sudo ./${COMBINER_NAME} -o ${DEVICE}
+popd
+
+# prepare a helper script for installation
+cat > complete-installation <<EOF
+ #!/bin/bash
+ set -e
+ clear
+ echo
+ echo "This script can be used to complete the installation"
+ echo "when you are preparing a new vanilla hw which has nothing"
+ echo "installed."
+ echo
+ echo "continue installation with <enter>"
+ read
+ clear
+ echo
+ echo "STATUS:"
+ echo " [ ] Recovery OS"
+ echo " [ ] OS"
+ echo
+ echo "Lets write the recovery os partition.."
+ ./halti-recoveryos-hw-write `ls *.combined`
+ echo "..done!"
+ clear
+ echo
+ echo "STATUS:"
+ echo " [x] Recovery OS"
+ echo " [ ] OS"
+ echo
+ echo "Check latest linkmotion password from:"
+ echo "  https://confluence.link-motion.com/display/SWA/Security+Notice"
+ echo
+ echo "Lets prepare the emmc.."
+ ./${COMBINER_NAME} -u linkmotion@nomovok.com
+ echo "..done!"
+ echo
+ clear
+ echo
+ echo "STATUS:"
+ echo " [x] Recovery OS"
+ echo " [x] OS"
+ echo
+ echo "==== NOW YOU SHOULD POWER CYCLE THE HW ===="
+ echo "then it should boot to the new OS."
+ echo "next time you can prepare and use the usb recovery stick."
+ echo
+ echo "bye bye"
+EOF
+
+# Download the recoveryos image
+RECOVERYOS_NAME=`./halti-recoveryos-downloader`
+mkdir -p tmp-sdcard-mount
+set +e
+sudo umount ${DEVICE}1
+set -e
+chmod +x complete-installation
+sudo mount ${DEVICE}1 tmp-sdcard-mount
+sudo cp ${RECOVERYOS_NAME} tmp-sdcard-mount/root/
+sudo cp ${TMPFOLDER}/${COMBINER_NAME} tmp-sdcard-mount/root/
+sudo cp halti-recoveryos-hw-write tmp-sdcard-mount/root/
+sudo cp complete-installation tmp-sdcard-mount/root/
+sudo umount tmp-sdcard-mount
+rm -rf tmp-sdcard-mount
+rm -rf tmp-halti-bootable
+rm complete-installation
+rm *.combined
+sync
+
+clear
+echo "Now the SD Card is ready!"
+echo
+echo "1) Place the sdcard to the HW."
+echo
+echo "2) Then in the u-boot (minicom) prompt execute following:"
+echo "  run cmd_sdboot"
+echo
+echo "3) login as root"
+echo "    root / skytree"
+echo
+echo "4) Then execute following script in autoos"
+echo " ./complete-installation  "
+echo

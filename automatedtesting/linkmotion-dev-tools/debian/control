@@ -1,0 +1,14 @@
+Source: linkmotion-dev-tools
+Section: unknown
+Priority: optional
+Maintainer: LinkMotion SDK Developers <info@link-motion.com>
+Build-Depends: debhelper (>=9), python-minimal, virtualenv, python-setuptools
+Standards-Version: 3.9.6
+Homepage: http://link-motion.com
+
+Package: linkmotion-dev-tools
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, docker.io, sshpass, openssh-client
+Description: LinkMotion developer tools.
+ This package includes Docker based cross-compiling environment for LinkMotion hardware and
+ tools required for setting up a new hardware.

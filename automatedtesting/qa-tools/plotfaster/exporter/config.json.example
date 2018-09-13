@@ -1,0 +1,47 @@
+{
+	"regular_graphs": {
+		"mem_stats": [
+			"total",
+			"free",
+			"used",
+			"cache",
+			"buffers"
+		],
+		"cpu_usage": null,
+		"cpu_freq": null,
+		"uptime": null,
+		"load": null
+	},
+
+	"procs": [
+		"init",
+		"ui_center",
+		"pulseaudio"
+	],
+
+	"units": {
+		"mem_stats":	"size",
+		"uptime":	"time",
+		"stime":	"time",
+		"utime":	"time",
+		"rss":		"size",
+		"cpu_usage":	"percent",
+		"cpu_freq":	"freq"
+	},
+
+	"aliases": {
+		"mem_stats":	"System memory statistics",
+		"uptime":	"System uptime",
+		"stime":	"CPU time spent in kernel mode",
+		"utime":	"CPU time spent in user mode",
+		"rss":		"Memory consumption (RSS)",
+		"cpu_usage":	"CPU usage",
+		"cpu_freq":	"CPU frequency",
+		"load":		"Load average (1 min)"
+	},
+
+	"settings": {
+		"graph_w":	1600,
+		"graph_h":	1200
+	}
+}

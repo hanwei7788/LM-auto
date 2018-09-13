@@ -1,0 +1,28 @@
+#!/bin/bash
+###############################################################################
+#
+# This is a python script wrapper for virtualenv
+#
+# Author: Juhapekka Piiroinen <juhapekka.piiroinen@link-motion.com>
+#
+# (C) 2016 Link Motion Oy
+# All Rights Reserved.
+###############################################################################
+
+# set work path to scriptpath
+SCRIPTFILE=`realpath $0`
+SCRIPTPATH=`dirname ${SCRIPTFILE}`
+pushd ${SCRIPTPATH} > /dev/null
+
+# get scriptname
+SCRIPTNAME=$1
+args=($@)
+args_len=${#args[@]}
+
+# goto inside the venv
+. ./venv/bin/activate
+
+# execute the script
+${SCRIPTNAME} ${args[@]:1:$args_len}
+
+popd > /dev/null

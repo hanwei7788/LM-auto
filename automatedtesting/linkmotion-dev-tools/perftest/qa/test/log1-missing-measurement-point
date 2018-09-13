@@ -1,0 +1,6 @@
+#this log is for testing a missing 2nd measurement point (root-mount)
+line 1
+foo elapsed=123456 bar
+line 2
+line 3
+int main(int, char**) ui_center/main.qml is now running after 3950 ms. ( epit value: 4278007423 )

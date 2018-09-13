@@ -1,0 +1,22 @@
+How to use config.json:
+=======================
+
+To generate graphs from all the data collected except processes (because
+process data is generally much more amorphous than other sampled data),
+simply add an entry to regular_graphs dictionary in config.json. Two
+main kinds of graph entries are supported:
+ - The list of subgraphs (such as mem_stats in config.json.example, which
+   will generate five actual graphs from components of the memory stats in
+   the report)
+
+ - The main graph, depicted in the graph entry dictionary by using null as
+   the value for the key; this will cause the entry sharing its name with
+   the key to be taken straight from the report as the measurement value.
+   It is OK to use this for measurements whose values itself are lists
+   (such as cpu_usage, where the measurement is a list with 1 float per
+   CPU core); all the list items will be plotted as separate curves on the
+   same graph.
+
+Processes are plotted slightly differently. The procs list in config.json
+is a list of processes that will be screened from the process tree listing
+in the report, and plotted.

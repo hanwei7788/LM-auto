@@ -1,0 +1,11 @@
+<parameters>
+
+  <!-- NOTICE:
+
+    Values defined in this file overwrites ALL EXISTING parameters set in templates.
+
+    If default value of parameter needs to be changed permanently please modify template file, not this one.
+
+  -->
+
+</parameters>

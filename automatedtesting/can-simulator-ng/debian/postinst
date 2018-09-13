@@ -1,0 +1,7 @@
+#!/bin/sh
+# postinst script for CAN simulator
+
+/sbin/setcap cap_net_raw,cap_net_admin+ep /usr/bin/can-simulator-ng
+/sbin/setcap cap_net_raw,cap_net_admin+ep /usr/bin/can-simulator-ng-gui
+
+exit 0

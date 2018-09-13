@@ -1,0 +1,292 @@
+<templates>
+
+  <!-- templates file version -->
+  <version>0.1</version>
+
+  <!--
+
+    Notice:
+    *** DO NOT MODIFY THIS FILE - Use TDriver parameters XML to configure your environment ***
+
+    Due to this file will be updated by TDriver development team, please use TDriver parameters XML file instead.
+    See TDriver parameters example XML (../tdriver_parameters.xml) for how to configure TDriver using templates.
+
+  -->
+
+  <!-- this template will be loaded automatically as global parameters; usage example: value = TDriver.parameter(:app_path) -->
+  <template name="global" inherits="logging;dbaccess;reporting">
+
+    <!-- test application path -->
+    <parameter name="app_path" value="" />
+
+    <!-- default behaviours file -->
+    <parameter name="behaviours" value="behaviours.xml" />
+    
+    <!-- synchronization timeout for verify when used as a global method -->
+    <parameter name="synchronization_timeout" value="10" />
+
+    <!-- xml cache settings -->
+    <parameter name="xml_cache_buffer_size" value="10" />
+    
+  </template>
+
+  <!-- default values for each SUT. Usage example: value = @sut.parameter(:type)-->
+  <template name="sut_generic">
+
+    <parameter name="type" value="" />
+    <parameter name="product" value="" />
+    <parameter name="env" value="" />
+
+    <parameter name="version" value="0" />
+    <parameter name="language" value="English-GB" />
+    <parameter name="read_lang_from_app" value="false" /> 
+
+    <!-- default dbaccess sut-specific values -->
+    <parameter name="localisation_server_database_tablename" value="default_localization_tablename" />
+    <parameter name="user_data_server_database_tablename" value="default_userinputs_tablename" />
+    <parameter name="operator_data_server_database_tablename" value="default_operatorimputs_tablename" />
+    <parameter name="operator_selected" value="orange" /> <!-- vodafone, etc... -->
+
+    <!-- default sut specific localisation table name -->
+    <parameter name="localisation_server_database_tablename" value="TB10_1_week16_loc" />
+
+    <!-- default device input type (e.g. key, touch) -->
+    <parameter name="input_type" value="key" />
+
+    <!-- default tcp/ip socket read/write/connect timeouts -->
+    <parameter name="socket_read_timeout" value="25" />
+    <parameter name="socket_write_timeout" value="25" />
+    <parameter name="socket_connect_timeout" value="25" />
+
+    <!-- default value for send_service_request message deflation rules -->
+    <parameter name="io_deflate_service_requests" value="true" />
+    <parameter name="io_deflate_minimum_size_in_bytes" value="1024" />
+
+    <!-- compression levels: -1 (DEFAULT), 0 (NO_COMPRESSION), 1 (BEST_SPEED), 9 (BEST_COMPRESSION) -->
+    <parameter name="io_deflate_compression_level" value="9" />
+
+    <!-- application start, stop etc. related parameters -->
+    <parameter name="application_start_arguments" value="" /> <!-- start, e.g. value="-style, testability" -->
+    <parameter name="application_close_kill" value="true" /> <!-- stop -->
+    <parameter name="application_close_wait" value="10" /> <!-- time in seconds -->
+    <parameter name="application_check_pid" value="true" /> <!-- use pid for application object identification -->
+
+    <parameter name="application_synchronization_timeout" value="20" />
+    <parameter name="application_synchronization_retry_interval" value="0.25" />
+
+    <!--framework defaults DO NOT TOUCH UNLESS YOU KNOW WHAT YOU ARE DOING -->
+    <parameter name="synchronization_timeout" value="10" />
+    <parameter name="default_timeout" value="20" />
+
+    <!-- ui xml compression, in most of cases this will improve performace -->
+    <parameter name="ui_state_compression" value="true" />
+
+    <!-- how many times ui state request will be tried in error situation before raising exception -->
+    <parameter name="ui_state_refresh_tries" value="5" />
+
+    <!-- ui state request interval value. If set will prevent ui state request to occur faster than the value -->
+    <parameter name="refresh_interval" value="0" />
+
+    <parameter name="verify_blocks" value="" />
+
+    <parameter name="use_find_object" value="true" />
+    
+    <!-- if no objects are found by a given text, a new search will be attempted to try and find an ellided version of the text -->
+    <!-- the new search will try to match the first 4 chars of the original text and optionally a trailing ellipsis char ... (not 3 dots, but \u2026 unicode char) -->
+    <parameter name="elided_search" value="false" />
+    <parameter name="elided_search_with_ellipsis" value="false" />
+
+  </template>
+
+  <!-- default parameters for mysql localisation server settings -->
+  <template name="dbaccess">
+
+    <!--parameter name="localisation_db_type" value="sqlite" /-->
+    <parameter name="localisation_db_type" value="mysql" />
+    <parameter name="localisation_server_ip" value="127.0.0.1" /> <!--valid only for mysql! -->
+    <parameter name="localisation_server_username" value="root" /> <!--valid only for mysql! -->
+    <parameter name="localisation_server_password" value="" /> <!--valid only for mysql! -->
+    <parameter name="localisation_server_database_name" value="default_tdriver_db" /> <!--path to the file for sqlite -->
+
+    <!-- default parameters for user data settings -->
+    <parameter name="user_data_db_type" value="mysql" />
+    <parameter name="user_data_server_ip" value="127.0.0.1" /> <!--valid only for mysql! -->
+    <parameter name="user_data_server_username" value="root" /> <!--valid only for mysql! -->
+    <parameter name="user_data_server_password" value="" /> <!--valid only for mysql! -->
+    <parameter name="user_data_server_database_name" value="default_tdriver_db" /> <!--path to the file for sqlite -->
+
+    <!-- default parameters for operator data settings -->
+    <parameter name="operator_data_db_type" value="sqlite" />
+    <parameter name="operator_data_server_ip" value="127.0.0.1" /> <!--valid only for mysql! -->
+    <parameter name="operator_data_server_username" value="root" /> <!--valid only for mysql! -->
+    <parameter name="operator_data_server_password" value="" /> <!--valid only for mysql! -->
+    <parameter name="operator_data_server_database_name" value="c:\operator_data.sqlite" /> <!--path to the file for sqlite --> <!-- posix="..." -->
+
+  </template>
+
+  <!-- default parameters for logging settings -->
+  <template name="logging" inherits="error_logging">
+
+    <!-- 
+      Logging levels:
+      0 = DISABLED    No logging done (default)
+      1 = DEBUG  Debug level logging
+      2 = BEHAVIOUR   Behaviour logging enabled (including all levels below)
+      2 = INFO        All levels below (suitable for most cases)
+      3 = WARNING     Warnings and all errors (not implemented)
+      4 = ERROR       All errors (not implemented)
+      5 = FATAL       Only fatal errors (not implemented)
+    -->
+    
+    <parameter name="logging_level" value="0" />
+    <parameter name="logging_outputter_enabled" value="false" />
+    <!-- default path: /logs/testability/tdriver, windows: logfiles/ under TDriver home folder -->
+    <parameter name="logging_outputter_path" value="/logs/testability/tdriver" windows="logfiles/" /> 
+    <parameter name="logging_outputter_unique_filename" value="false" />
+    <parameter name="logging_outputter_append" value="false" />
+    <parameter name="logging_include_behaviour_info" value="false" />
+    <!-- pattern macros: %d date, %c log name, %l log level, %M text -->
+    <parameter name="logging_outputter_pattern" value="%d [%c] [%l] %M" />  
+    <parameter name="logging_stdout_outputter_enabled" value="false" />
+
+  </template>
+
+  <!-- error logging settings -->
+  <template name="error_logging">
+
+    <!-- store xml file if error occured? -->
+    <parameter name="logging_xml_parse_error_dump" value="true" />
+
+    <!-- where to store errorneous xml dump -->
+    <parameter name="logging_xml_parse_error_dump_path" value="/logs/testability/tdriver" windows="logfiles/" />
+
+    <!-- use static or unique filename for xml dump -->
+    <parameter name="logging_xml_parse_error_dump_overwrite" value="false" />
+
+  </template>
+
+  <!-- default parameters for reporting settings -->
+  <template name="reporting" inherits="error_recovery">
+    <!-- parameter for reporter modules enable disable enabled by default -->
+    <parameter name="enable_reporter" value="true" />
+    <parameter name="report_short_folders" value="true" />
+    
+    <!-- Parameters for report crash file monitoring -->
+    <parameter name="report_crash_file_monitor" value="false" />
+    <parameter name="report_crash_file_monitor_crash_file_cleanup" value="false" />
+    <parameter name="report_crash_file_monitored_sut_ids" value="s60,qt_sut" />
+    <parameter name="report_crash_file_locations" value="C:,c:\data,E:,F:" /> <!-- posix="..." -->
+    <parameter name="report_crash_file_names" value="MobileCrash" />
+    <parameter name="report_crash_file_monitor_confirm_any_crash_note" value="false" />
+    <parameter name="report_disconnect_connected_devices" value="false" />
+    <parameter name="report_generate_rdoc" value="false" />
+    <parameter name="custom_error_recovery_module" value="/etc/tdriver/tdriver_custom_error_recovery.rb" windows="/tdriver/tdriver_custom_error_recovery.rb" />
+
+    <!-- Parameters for report details -->
+    <parameter name="report_outputter_path" value="tdriver_reports/" />
+    <parameter name="behaviour_logging" value="true" />
+    <parameter name="realtime_status_page_update" value="false" />
+    <parameter name="report_exclude_passed_cases" value="false" />
+    <parameter name="report_script_steps_to_details" value="false" />
+
+    <parameter name="report_passed_statuses" value="passed" /> <!-- Different statuses can be separated with | -->
+    <parameter name="report_failed_statuses" value="failed" /> <!-- Different statuses can be separated with | -->
+    <parameter name="report_not_run_statuses" value="not run" /> <!-- Different statuses can be separated with | -->
+    <parameter name="report_editable" value="false" /> <!-- Set to true to make report editable -->
+
+    <parameter name="report_trace_capture" value="false" /> <!-- capture traces to test case -->
+    <parameter name="report_trace_folder" value="C:/my_trace_folder/" /> <!-- Folder that contains the trace files that are attached to test case --> <!-- posix="..." -->
+    <parameter name="report_trace_capture_only_in_failed_case" value="true" /> <!-- capture trace files only when test case fails -->
+
+    <parameter name="report_monitor_memory" value="false" /> <!-- monitor memory consumption in test cases if set to true -->
+    <parameter name="report_collect_environment_data_from_sut" value="false" /> <!-- collect enviroment data from sut -->
+    <parameter name="report_generate_duration_graph" value="false" />
+
+    <!-- Parameters for generic file capturing -->
+    <parameter name="report_file_monitor" value="false" />
+    <parameter name="report_file_monitored_sut_ids" value="sut_s60_qt,qt_sut" />
+    <parameter name="report_file_locations" value="C:\logs,E:\logs" /> <!-- posix="..." -->
+    <parameter name="report_file_names" value="*.log" />
+    <parameter name="report_clean_files_from_sut_after_capture" value="true" />
+    <parameter name="report_fail_test_if_files_found" value="true" />
+
+    <!-- setting report_video to "true" will record using any device TDriver can find. -->
+    <parameter name="report_video" value="false" />
+    <parameter name="report_video_fps" value="10" />
+    <parameter name="report_video_width" value="640" />
+    <parameter name="report_video_height" value="480" />
+    <parameter name="realtime_status_page_update" value="false" />
+
+
+
+  </template>
+
+  <!-- Parameters for error recovery situations -->
+  <template name="error_recovery">
+
+    <parameter name="error_recovery_enabled" value="false" />
+    <parameter name="ats4_error_recovery_enabled" value="false" />
+    <parameter name="wait_time_for_ats4_error_recovery" value="60" />
+    <parameter name="error_recovery_monitored_sut_ids" value="s60" />
+
+    <!-- Parameters for pinging the connection -->
+    <parameter name="ping_connection" value="true" />        
+
+    <!-- Parameters for reconnect attempts -->
+    <parameter name="reconnect_device" value="true" />
+    <parameter name="reconnect_attempts" value="1" />
+
+  </template>
+
+  <!-- sut specific settings, model -->
+  <template name="sut_settings_model">
+
+    <parameter name="sut_settings_phone_number" value="1234567890" />
+    <parameter name="sut_settings_language" value="English" />
+    <parameter name="sut_settings_keypad_layout" value="finnish_english_finnish" />
+    <parameter name="sut_settings_operator" value="O2" />
+    <parameter name="sut_settings_variant" value="01" />
+    <parameter name="sut_settings_codes_pin" value="1234" />
+    <parameter name="sut_settings_codes_puk" value="12345678" />
+    <parameter name="sut_settings_mac_bluetooth" value="de:ad:be:ef:01:02:03:04" />
+    <parameter name="sut_settings_mac_wlan" value="de:ad:be:ef:04:03:02:01" />
+
+  </template>
+
+  <!-- Examples of how sut settings models are created and used  -->
+  <template name="sut_settings_model_sut_1" inherits="sut_settings_model">
+
+    <!-- settings for a single device, overwrites some parameters -->
+    <parameter name="sut_settings_phone_number" value="0987654321" />
+    <parameter name="sut_settings_mac_wlan" value="ca:fe:ba:be:04:03:02:01" />
+
+  </template>
+
+  <template name="switchbox">
+    <!-- switchbox control commands default is for windows environments using foobox -->
+    <parameter name="switchbox_timeout_between_command_sequence" value="5" /> <!-- timeout in seconds between the switchbox commands -->
+    <parameter name="switchbox_powerdown_command_sequence" value="foobox USB0|foobox -VBAT1" /> <!-- if the device is connected to other than port 1 then change accordingly -->
+    <parameter name="switchbox_powerdown_command_success_string" value="" /> <!-- If no error then no string is displayed -->
+    <parameter name="switchbox_powerup_command_sequence" value="foobox +VBAT1|foobox USB1" /> <!-- if the device is connected to other than port 1 then change accordingly -->
+    <parameter name="switchbox_powerup_command_success_string" value="" /> <!-- If no error then no string is displayed -->
+    <parameter name="switchbox_sleep_before_powerup_in_reboot" value="5" /> <!-- need to wait for a couple of seconds before powerup after powerdown -->
+    <parameter name="switchbox_sleep_after_powerup_in_reboot" value="60" /> <!-- need to wait for the device to come up after poweup -->
+    <parameter name="switchbox_commands_after_powerup_in_reboot" value="" /> <!-- commands you want to be executed when polling for a device during powerup -->
+  </template>
+  
+  <template name="flash">
+    <!-- flash control commands default is for windows environments using  -->
+    <parameter name="flash_attempts" value="1" /> <!-- how many times  will attempt to flash the device -->
+    <parameter name="timeout_between_command_sequence" value="25" /> <!-- timeout in seconds between the switchbox and  commands before and after flash -->
+    <parameter name="switchbox_commands_before_flash" value="" /> <!-- commands you want to be executed before flash, commands are sparated with | -->
+    <parameter name="commands_before_flash" value="" /> <!-- flash commands for  before flash, commands are sparated with | -->
+    <parameter name="flash_command" value="" /> <!-- intial flash command for  -->
+    <parameter name="optional_parameters_after_flashing" value="/nm" /> <!-- optional flash parameters -->
+    <parameter name="flash_images" value="/tmp/image.bin /tmp/image2.bin" /> <!-- images to flash  -->
+    <parameter name="switchbox_commands_after_failed_flash" value="" /> <!-- commands for switchbox after failed flash, commands are sparated with |  -->
+    <parameter name="commands_after_failed_flash" value="" /> <!-- commands for  after failed flash, commands are sparated with |  -->
+    <parameter name="command_after_flash" value="" /> <!-- flash command for  after flash, commands are sparated with |  -->
+    <parameter name="switchbox_commands_after_flash" value="" /> <!-- commands you want to be executed after flash, commands are sparated with |  -->
+  </template>
+
+</templates>

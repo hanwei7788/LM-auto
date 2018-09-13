@@ -1,0 +1,86 @@
+# Example config file. You have to copy this as weekly.conf and edit according
+# to your needs.
+[general]
+	# Number of seconds between allowing update to a newer image of a
+	# certain flavor. 1 week == 604800 seconds
+	update_period=604800
+	priority=release,weekly,nightly
+	image_types=argo,pallas,indy
+
+	# On which priorities will a newer image be allowed to override test
+	# execution with an older image before meeting the update_period
+	# deadline?
+	new_overrides_old=weekly
+
+	can_simulator=$HOME/automatedtesting/can-simulator-ng/can-simulator-ng
+
+# Devices
+[argo_idle]
+	ip=
+	config_file=
+	testset=idle
+	power_switch=
+	can_if=
+
+[pallas_idle]
+	ip=
+	config_file=
+	testset=idle
+	power_switch=
+	can_if=
+
+[argo_medium]
+	ip=
+	config_file=
+	testset=medium
+	power_switch=
+	can_if=
+
+[pallas_medium]
+	ip=
+	config_file=
+	testset=medium
+	power_switch=
+	can_if=
+
+[argo_stress]
+	ip=
+	config_file=
+	testset=idle
+	power_switch=
+	can_if=
+
+[pallas_stress]
+	ip=
+	config_file=
+	testset=idle
+	power_switch=
+	can_if=
+
+[argo]
+	devices=argo_idle,argo_medium,argo_stress
+	release=https://dav.nomovok.info/argo//images/release/imx6-swa_system-rnd-latest
+	weekly=https://dav.nomovok.info/argo//images/rnd/imx6-swa_system-testing-latest
+	nightly=https://dav.nomovok.info/argo//images/rnd/imx6-swa_system-rnd-latest
+	can_dbc=$HOME/automatedtesting/can-simulator-ng/argo.dbc
+	can_cfg=$HOME/automatedtesting/can-simulator-ng/argo.cfg
+
+[pallas]
+	devices=pallas_idle,pallas_medium,pallas_stress
+	release=https://dav.nomovok.info/pallas//images/release/imx6-pallas_system-testing-latest
+	weekly=https://dav.nomovok.info/pallas//images/rnd/imx6-pallas_system-testing-latest
+	nightly=https://dav.nomovok.info/pallas//images/rnd/imx6-pallas_system-rnd-latest
+	can_dbc=$HOME/automatedtesting/can-simulator-ng/pallas.dbc
+	can_cfg=$HOME/automatedtesting/can-simulator-ng/pallas.cfg
+	can_powerdown=send KeyPosition=0
+	can_powerup=send KeyPosition=3
+
+[indy]
+	devices=
+	release=https://dav.nomovok.info/indy/images/release/imx6-indy_mule_system-rnd-latest
+	weekly=
+	nightly=https://dav.nomovok.info/indy/images/rnd/imx6-indy_mule_system-rnd-latest
+	can_dbc=$HOME/automatedtesting/can-simulator-ng/indy.dbc
+	can_cfg=$HOME/automatedtesting/can-simulator-ng/indy.cfg
+	can_powerdown=send send chargingInd=0 readyInd=0
+	can_powerup=send send chargingInd=1 readyInd=1

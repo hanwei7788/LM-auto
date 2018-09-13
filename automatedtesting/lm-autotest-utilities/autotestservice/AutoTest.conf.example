@@ -1,0 +1,13 @@
+##################################
+#This is a conf file for autotests
+##################################
+testroot="$HOME/automatedtesting/argo_functional_tests"
+scriptfolder="$HOME/automatedtesting/lm-autotest-utilities/autotestservice"
+jirafolder="$HOME/automatedtesting/lm-autotest-utilities/jira_uploader"
+slackfolder="$HOME/automatedtesting/lm-autotest-utilities/slack_announcer"
+qatoolsfolder="$HOME/automatedtesting/qa-tools"
+sufufolder="$HOME/automatedtesting/linkmotion-dev-tools/perftest/qa"
+ssh_pw="skytree"
+canconfigfolder="$HOME/automatedtesting/can-simulator-ng/"
+imxusb="$HOME/imx_usb/imx_usb_loader"
+dl_recovery_url="https://dav.nomovok.info/argo/images/rnd/imx6-swa_recovery-testing-latest"

@@ -1,0 +1,230 @@
+#!/usr/bin/env ruby
+
+require 'io/console'
+require 'net/http'
+require 'uri'
+require 'optparse'
+begin
+  require 'notify'
+rescue LoadError
+end
+
+class Spinner
+  SPINCHARS = %w[| / - \\]
+  def initialize
+    @current = 0
+    print SPINCHARS[@current % SPINCHARS.length]
+    @current += 1
+    @last = Time.now
+  end
+  def progress
+    now = Time.now
+    if now.to_f > @last.to_f + 0.5
+      print "\b"
+      print SPINCHARS[@current % SPINCHARS.length]
+      @current += 1
+      @last = now
+    end
+  end
+  def stop
+    print "\b "
+  end
+end
+
+class PercentSpinner
+  def initialize(total_size)
+    @total_size = total_size
+    @read_size = 0
+    @last_percent = 0
+    print "  0%"
+  end
+  def progress(size)
+    @read_size += size
+    percent = (100.0 * @read_size / @total_size).round
+    if percent != @last_percent
+      print "\b\b\b\b"
+      print "#{percent.to_s.rjust(3, " ")}%"
+      @last_percent = percent
+    end
+  end
+  def stop
+  end
+end
+
+class DownloadClient
+  def initialize(user, password)
+    @user = user
+    @password = password
+  end
+  def get(url)
+    uri = URI.parse(url)
+    request = Net::HTTP::Get.new(uri)
+    request.basic_auth(@user, @password)
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request)
+    end
+
+    if response.code == "200"
+      return response.body
+    else
+      return nil
+    end
+  end
+  def basename(url)
+    File.basename(URI.parse(url).path)
+  end
+  def get_write_file(url)
+    uri = URI.parse(url)
+    request = Net::HTTP::Get.new(uri)
+    request.basic_auth(@user, @password)
+
+    req_options = {
+      use_ssl: uri.scheme == "https",
+    }
+
+    f = File.open(File.basename(uri.path), "w")
+    Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+      http.request(request) do |response|
+        if response.code == "200"
+          spinner = PercentSpinner.new(response.content_length)
+          response.read_body do |segment|
+            spinner.progress(segment.size)
+            f.write(segment)
+          end
+          spinner.stop
+        end
+      end
+    end
+  end
+end
+
+def get_git_user_email
+  fn = "#{Dir.home}/.gitconfig"
+  begin
+    lines = File.read(fn).split("\n")
+    in_user = false
+    lines.each do |l|
+      if l =~ /^\[(\w+)\]$/
+        if $1 == "user"
+          in_user = true
+        else
+          in_user = false
+        end
+      else
+        if in_user
+          if l =~ /email *= *(.+)/
+            return $1
+          end
+        end
+      end
+    end
+  rescue SystemCallError
+    abort("Could not get username from #{fn}, aborting!")
+  end
+end
+
+def get_highest_versions(target, file)
+  versions = Hash.new(Gem::Version.new("0"))
+  file.split("\n").each do |l|
+    if l =~ /img src=\"\/icons\/folder\.gif\"/
+      if l =~ /<a href=\"(imx6|vm)-(\d+\.\d+)-(.+)\/\">/
+        if $1 == target
+          v = Gem::Version.new($2)
+          if v > versions[$3]
+            versions[$3] = v
+          end
+        end
+      end
+    end
+  end
+  return versions
+end
+
+ARGV << '-h' if ARGV.empty?
+
+options = {}
+OptionParser.new do |opts|
+  opts.on("-i", "--imx6", "Download imx6 images") do
+    options[:imx6] = true
+  end
+  opts.on("-m", "--vm", "Download vm images") do
+    options[:vm] = true
+  end
+  opts.on("-u=EMAIL", "--user=EMAIL", "Set username to use to login to dav (default: autodetect)") do |v|
+    options[:user] = v
+  end
+  opts.on_tail("-h", "--help", "Prints this help") do
+    puts opts
+    puts %{
+    Downloads latest images from dav. One of the -i or -m options must be specified.
+    Unless dav username is specified with -u option the username is detected by
+    executing 'git --get user.email'
+    }
+    exit
+  end
+end.parse!
+
+if not (options[:imx6] or options[:vm])
+  abort "Image type required, try \"#{$0} -h\" for more info"
+end
+
+if not options[:user]
+  options[:user] = get_git_user_email
+end
+
+print "Password: "
+password = STDIN.noecho(&:gets).chomp
+puts ""
+
+types = nil
+target = nil
+if options[:imx6]
+  target = "imx6"
+  types = %w(autoos ivios seccont)
+elsif options[:vm]
+  target = "vm"
+  types = %w(autoos ivios)
+end
+
+downloader = DownloadClient.new(options[:user], password)
+
+url = "https://dav.nomovok.info/argo/images/rnd/"
+file = downloader.get(url)
+versions = get_highest_versions(target, file)
+
+types.each do |type|
+  version = versions["swa_#{type}-rnd"]
+  url = "https://dav.nomovok.info/argo/images/rnd/#{target}-#{version}-swa_#{type}-rnd/latest"
+  file = downloader.get(url)
+  image = nil
+  file.split("\n").each do |l|
+    if target == "imx6"
+      if l =~ /\.ext4fs\.xz$/
+        image = l
+      end
+    elsif target == "vm"
+      if type == "autoos"
+        if l =~ /\.tar\.bz2$/
+          image = l
+        end
+      elsif type == "ivios"
+        if l =~ /\.ova$/
+          image = l
+        end
+      end
+    end
+  end
+  print "Downloading #{downloader.basename(image)} "
+  downloader.get_write_file(image)
+  puts ""
+end
+
+if defined?(Notify)
+  Notify.notify "Downloader", "done"
+end
+

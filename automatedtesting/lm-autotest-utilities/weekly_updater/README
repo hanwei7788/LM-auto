@@ -1,0 +1,90 @@
+Weekly update manager
+=====================
+
+Author: Pauli Oikkonen, 2017
+
+Description
+===========
+
+The weekly updater system is intended for running week-long stability tests
+totally automatically, but it will scale to shorter and longer test periods
+too. It supports giving priorities to different image types (for example
+release > weekly > nightly), so that a new high priority image will always
+override a lower priority image test run. For example, when nightly image tests
+are running and a weekly image is released, the tests will automatically halt
+and the weekly image will be flashed instead.
+
+In addition to the priority system, the test duration is also controlled from a
+date variable. When a certain priority image is flashed, its Last Update
+timestamp will be set to current date, which will be used along with the
+new_overrides_old config variable (if a newer image of the same flavor as
+currently running image is released before completing a 5-day test run, is it
+OK to reflash?) to decide whether it is ok to flash a new image or not.
+
+The logic goes as follows: If the test has been running for over a week, any
+image can be flashed (in descending priority order). If not, the
+new_overrides_old variable will be checked, and if the current image flavor is
+listed there, a possible newer image of the same flavor is allowed to override
+the current test. Also a newer image of a higher priority is always allowed to
+override a running test. After that, the test schedule will be checked whether
+it'll allow updating at this point of time (in the current situation, any
+flashing is prohibited before an image completes 30 hours of testing, even if a
+release was about to override a nightly). If yes, then flashing can proceed.
+
+As an exception to above, if the tests have failed (ie. the weekly test process
+has died), it's always OK to reflash.
+
+Requirements
+============
+
+Weekly updater system is written in Python 3, so you'll need it installed. You
+also need to install the requests module from pip (pip3 install requests). It
+also requires images that have a network connection enabled (with a stable IP
+so that you don't have to reconfigure it always).
+
+On the device side, you need to have the modified recovery image built to
+support automatic flashing, and a blank USB drive inserted.
+
+Using
+=====
+
+The update manager is supposed to be run as a daemon that will run the update
+check once an hour, and do an update if one is due. The rationale behind this
+design is that when a device is updated and autotests started on it, the
+autotest process can remain owned by the update manager instead of being
+adopted by PID 1 (in which case it would be more difficult to accurately track
+the process status). The manager will automatically keep updating the devices
+when new images are released.
+
+To add devices to the update manager, you need to add (currently manually) your
+devices to weekly.conf file, and create a per-device config file (use
+per_device.conf.example for reference). The new device in weekly.conf will be
+detected on the next update round, and updated if needed.
+
+The daemon can be started by simply running
+`nohup weekly_updater.py > update.log`. It is also possible to just run
+weekly_updater.py, which will print all the output to stdout.
+
+Configuration
+=============
+
+The update manager is configured with weekly.conf. In the General section,
+most important variables are priority (the order which images can override
+existing tests on which), image_types (which sections of the file describe
+different image types such as Argo, Pallas or Indy), and new_overrides_old
+(on which images is it OK to abort a test and reflash when a newer image of
+the same type, such as Argo release, appears).
+
+Each device is represented by a section where the IP address, per-device
+config file, test set, power switch and CAN interface (optional, only for
+images supporting CAN powerup/powerdown) are defined. Note that the device
+sections do not contain any mention about the image type being run on the
+device, because it would be redundant (image type sections name devices
+belonging to them already). The per-device config file does not need manual
+updating, you can just copy per_device.conf.example for that purpose.
+
+The image type sections contain a comma-separated list of devices belonging
+to that image type, URLs for all or some priorities' latest files in DAV (ie.
+files pointing to the newest ZIP installers), and for image typese that can
+be powered up and down through CAN, the DBC and CFG files for CAN simulator,
+and the power up and down commands.

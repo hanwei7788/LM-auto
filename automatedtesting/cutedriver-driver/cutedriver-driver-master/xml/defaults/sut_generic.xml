@@ -1,0 +1,8 @@
+<parameters>
+
+	<sut id="sut_generic" template="sut_generic;switchbox;flash">
+		<!-- use default values -->
+		<parameter name="sut_plugin" value="tdriver-generic-sut-plugin" />
+	</sut>
+
+</parameters>

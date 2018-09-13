@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+#
+# This script has been ported from vb-run.sh.
+#
+# This is meant for executing the ui_center on the vm with Qt Creator.
+#
+# Expectes to have /etc/sudoers NOPASSWD: set for system
+#
+
+SSH_OPTS="-p 22"
+SSH_IP="10.0.0.30"
+PROJECT_NAME="ui_center"
+
+ssh $SSH_OPTS -tt system@${SSH_IP} << EOF
+  systemctl --user stop skytree-compositor.service
+  sudo cp src/${PROJECT_NAME}/src/${PROJECT_NAME}_compiled_bin /usr/apps/org.c4c.${PROJECT_NAME}/bin/
+  systemctl --user restart skytree-compositor.service
+EOF
+

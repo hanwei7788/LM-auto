@@ -1,0 +1,10 @@
+Run setup-vm on the host side to setup a new SDK VM image for use with the Qt Creator VM image.
+
+Run setup-qt-vm inside the Qt Creator VM.
+
+See screenshots:
+ - build-settings.png contains picture for the project build steps.
+ - run-settings.png contains picture for the project run steps.
+
+
+Ask details: juhapekka.piiroinen@link-motion.com
